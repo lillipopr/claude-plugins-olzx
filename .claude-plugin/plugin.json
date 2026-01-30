@@ -1,0 +1,29 @@
+{
+  "name": "spec-compiler-kit",
+  "description": "规格编译器套件：将模糊需求编译为确定性规格文档，实现'人管变化，AI 写实现'",
+  "author": {
+    "name": "zxq",
+    "email": "zxq@example.com"
+  },
+  "homepage": "https://github.com/zxq/spec-compiler-kit",
+  "repository": "https://github.com/zxq/spec-compiler-kit",
+  "license": "MIT",
+  "keywords": [
+    "spec",
+    "compiler",
+    "ddd",
+    "modeling",
+    "architecture",
+    "tdd",
+    "documentation",
+    "agile"
+  ],
+  "category": "workflow",
+  "tags": [
+    "spec",
+    "ddd",
+    "modeling",
+    "architecture",
+    "tdd"
+  ]
+}
