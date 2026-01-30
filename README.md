@@ -77,33 +77,29 @@ spec-compiler-kit/
 ├── README.md                     # 项目说明
 ├── CHANGELOG.md                  # 版本变更记录
 ├── commands/                     # 【Command 层】用户命令入口
-│   ├── spec.md                  # 主命令（智能路由）
-│   ├── spec-new.md              # 首次功能建设
-│   ├── spec-iter.md             # 功能迭代
-│   ├── spec-fix.md              # Bug 修复
-│   ├── spec-offline.md          # 功能下线
-│   └── spec-review.md           # 规格审查
+│   ├── prd.md                   # 产品经理命令
+│   ├── ddd.md                   # 领域架构师命令
+│   ├── spec.md                  # 规格编译器命令
+│   ├── tdd.md                   # TDD 专家命令
+│   ├── java.md                  # Java 工程师命令
+│   ├── ios.md                   # iOS 工程师命令
+│   └── front.md                 # 前端工程师命令
 ├── agents/                       # 【Agent 层】按角色命名的执行代理
-│   ├── product-manager/  # 资深产品经理
-│   ├── domain-architect/ # 资深领域架构师
-│   ├── fullstack-engineer/ # 资深全栈工程师
-│   ├── test-engineer/    # 资深测试工程师
-│   ├── project-manager/  # 资深项目经理
-│   ├── java-expert/      # Java 后端专家
-│   ├── ios-expert/       # iOS 开发专家
-│   ├── frontend-expert/  # 前端开发专家
-│   └── database-expert/  # 数据库专家
+│   ├── product-manager.md       # 产品经理
+│   ├── domain-architect.md      # 领域架构师
+│   ├── spec-compiler-v4.md      # 规格编译器
+│   ├── tdd-expert.md            # TDD 专家
+│   ├── java-expert.md           # Java 专家
+│   ├── ios-expert.md            # iOS 专家
+│   └── frontend-expert.md       # 前端专家
 ├── skills/                       # 【Skill 层】按角色配备的知识库
 │   ├── for-product-manager/     # 产品经理知识库
 │   ├── for-domain-architect/    # 领域架构师知识库
-│   ├── for-spec-modeler/        # 规格建模知识库
-│   ├── for-fullstack-engineer/  # 全栈工程师知识库
-│   ├── for-test-engineer/       # 测试工程师知识库
-│   ├── for-project-manager/     # 项目经理知识库
+│   ├── for-spec-compiler-v4/    # 规格编译器知识库
+│   ├── for-tdd-expert/          # TDD 专家知识库
 │   ├── for-java-expert/         # Java 专家知识库
 │   ├── for-ios-expert/          # iOS 专家知识库
-│   ├── for-frontend-expert/     # 前端专家知识库
-│   └── for-database-expert/     # 数据库专家知识库
+│   └── for-frontend-expert/     # 前端专家知识库
 └── tools/                        # 【Tools 层】工具封装
     ├── file-tools/              # 文件操作工具
     ├── search-tools/            # 搜索工具
@@ -114,7 +110,7 @@ spec-compiler-kit/
 
 | 层级 | 目录 | 职责 | 关系 |
 |------|------|------|------|
-| **Command 层** | `commands/` | 面向用户的 `/dev-*` 命令入口 | 路由到合适的 Agent |
+| **Command 层** | `commands/` | 面向用户的命令入口（`/prd`, `/ddd`, `/spec` 等） | 路由到合适的 Agent |
 | **Agent 层** | `agents/` | 实际执行任务、多次 tool 调用、决策、状态管理 | 按角色命名，引用对应 Skill |
 | **Skill 层** | `skills/` | 提供领域知识、方法论、SOP、模板、设计模式、原则 | 按角色配备 |
 | **Tools 层** | `tools/` | 读写文件、搜索、执行命令等 | 主动操作资源 |
@@ -171,27 +167,26 @@ claude-code --plugin list
 ### 命令
 
 ```bash
-/dev               # 交互式选择场景
-/dev feature       # 新功能开发（4 Phase 完整流程）
-/dev fix           # Bug 修复
-/dev refactor      # 代码重构
-/dev review        # 代码审查
-/dev test          # 测试相关
-/dev security      # 安全审查
-/dev pr            # 创建 PR
+/prd     # 产品经理：创建/修改/Review PRD
+/ddd     # 领域架构师：创建/修改/Review DDD 设计
+/spec    # 规格编译器：创建/修改/Review 规格文档（4 Phase）
+/tdd     # TDD 专家：编写/执行测试
+/java    # Java 工程师：实现/Review/Bugfix 后端代码
+/ios     # iOS 工程师：实现/Review/Bugfix iOS 代码
+/front   # 前端工程师：实现/Review/Bugfix 前端代码
 ```
 
-## 场景支持
+## 命令说明
 
-| 场景 | 命令 | 执行阶段 | 说明 |
-|------|------|---------|------|
-| **新功能开发** | `/dev-feature` | PRD → DDD → 建模 → 实现 | 完整流程，每阶段 planner 规划 |
-| **Bug 修复** | `/dev-fix` | 用例补充 → 推导修复 → 验证 | TDD 方法 |
-| **代码重构** | `/dev-refactor` | 规划范围 → 执行 → 验证 | 重构规划控制 |
-| **代码审查** | `/dev-review` | 规划 → 执行审查 → 输出报告 | 多维度审查 |
-| **测试相关** | `/dev-test` | 规划 → 生成测试 → 验证覆盖率 | 覆盖率 80%+ |
-| **安全审查** | `/dev-security` | 规划 → 安全检查 → 修复建议 | OWASP Top 10 |
-| **创建 PR** | `/dev-pr` | 分析变更 → 生成摘要 → 创建 | 自动生成 PR 描述 |
+| 命令 | 调用专家 | 主要功能 | 场景 |
+|------|----------|----------|------|
+| `/prd` | 产品经理 | 创建/修改/Review PRD | 需求定义 |
+| `/ddd` | 领域架构师 | 创建/修改/Review DDD 设计 | 领域建模 |
+| `/spec` | 规格编译器 | 创建/修改/Review 规格文档 | 规格建模（4 Phase） |
+| `/tdd` | TDD 专家 | 编写/执行测试 | 单测/集成/E2E |
+| `/java` | Java 工程师 | 实现/Review/Bugfix | 后端开发 |
+| `/ios` | iOS 工程师 | 实现/Review/Bugfix | iOS 开发 |
+| `/front` | 前端工程师 | 实现/Review/Bugfix | 前端开发 |
 
 ## 支持架构
 

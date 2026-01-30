@@ -1,0 +1,152 @@
+---
+name: front
+description: 调用前端专家，实现前端代码/Review/Bugfix
+---
+
+# /front - 前端工程师命令
+
+## 描述
+
+调用前端专家，实现规格文档的前端部分，并负责代码审查和 Bug 修复。
+
+## 使用方式
+
+```bash
+/front
+```
+
+## 场景选择
+
+### 1. 实现前端代码
+
+**前提条件**：已有规格文档
+
+**输入**：规格文档路径
+
+**执行流程**：
+1. 调用 `frontend-expert` Agent
+2. 分析规格文档中的前端部分
+3. 遵循 Vue 3 分层架构：
+   ```
+   View → Composable → Service → API → Request
+   ```
+4. 生成各层代码：
+   - View 层：Vue 组件、模板、样式
+   - Composable 层：ref/reactive 状态管理、业务编排
+   - Service 层：业务逻辑、数据转换
+   - API 层：接口路径定义、参数组装
+   - Request 层：axios 封装、拦截器
+5. 确保代码质量：
+   - 遵循 Vue 3 Composition API
+   - 遵循 TypeScript 规范
+   - 组件化设计
+   - 响应式布局
+
+**产出**：前端代码实现
+
+### 2. Review 代码
+
+**输入**：待审查的代码路径
+
+**执行流程**：
+1. 调用 `frontend-expert` Agent
+2. 检查 Vue 3 架构规范
+3. 验证 TypeScript 使用
+4. 检查代码质量：
+   - 组件设计
+   - 状态管理
+   - 性能优化
+   - 代码复用
+5. 检查安全性：
+   - XSS 防护
+   - CSRF 防护
+   - 输入验证
+6. 输出审查报告
+
+**产出**：代码审查报告
+
+### 3. 修复 Bug
+
+**输入**：Bug 描述或测试失败信息
+
+**执行流程**：
+1. 调用 `frontend-expert` Agent
+2. 分析 Bug 根本原因
+3. 设计修复方案
+4. 实现修复代码
+5. 添加/更新测试用例
+6. 验证修复
+
+**产出**：修复后的代码 + 测试用例
+
+## 架构分层
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                       Vue 3 前端分层架构                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  View            │ Vue 组件、模板、样式                           │
+│  ─────────────────────────────────────────────────────────────  │
+│  Composable      │ ref/reactive 状态管理、业务编排、调用 Service   │
+│  ─────────────────────────────────────────────────────────────  │
+│  Service         │ 业务逻辑、数据转换、不变量校验                   │
+│  ─────────────────────────────────────────────────────────────  │
+│  API             │ 接口路径定义、参数组装、调用 Request            │
+│  ─────────────────────────────────────────────────────────────  │
+│  Request         │ axios 封装、请求/响应拦截器、错误处理            │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+## 命名规范
+
+| 层 | 文件命名 | 示例 |
+|----|---------|------|
+| View | `XxxView.vue` | `MembershipView.vue` |
+| Composable | `useXxx.ts` | `useMembership.ts` |
+| Service | `xxxService.ts` | `membershipService.ts` |
+| API | `xxxApi.ts` | `membershipApi.ts` |
+| Request | `request.ts` | `request.ts` |
+
+## 技术栈
+
+- **框架**: Vue 3
+- **语言**: TypeScript
+- **状态管理**: Pinia
+- **路由**: Vue Router
+- **HTTP**: Axios
+- **构建**: Vite
+
+## 质量标准
+
+| 检查项 | 标准 |
+|--------|------|
+| 架构分层 | 严格遵循 Vue 3 分层 |
+| TypeScript | 类型完整、无 any |
+| 组件设计 | 单一职责、可复用 |
+| 响应式 | 移动端适配 |
+| 测试覆盖率 | 80%+ |
+
+## 相关文档
+
+- [前端专家 Skill](../skills/for-frontend-expert/SKILL.md)
+- [Vue 3 分层规范](../rules/architecture/vue3-layers.md)
+- [代码模板](../skills/for-frontend-expert/references/templates/)
+
+## 示例
+
+```
+用户: /front
+
+Claude: 请选择场景：
+1. 实现前端代码
+2. Review 代码
+3. 修复 Bug
+
+用户: 1
+
+Claude: 请提供规格文档路径...
+
+[调用 frontend-expert Agent，生成 Vue 3 分层代码]
+```
