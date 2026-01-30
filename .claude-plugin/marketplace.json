@@ -19,20 +19,15 @@
       "strict": false,
       "author": {
         "name": "zxq",
-        "email": "zxq@olzx-ai.com",
-        "url": "https://github.com/lillipopr"
+        "email": "zxq@olzx-ai.com"
       },
       "homepage": "https://github.com/lillipopr/spec-compiler-kit",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/lillipopr/spec-compiler-kit.git"
-      },
-      "bugs": "https://github.com/lillipopr/spec-compiler-kit/issues",
+      "repository": "https://github.com/lillipopr/spec-compiler-kit",
       "license": "MIT",
-      "skills": ["./skills/"],
-      "commands": ["./commands/"],
-      "agents": ["./agents/"],
-      "hooks": ["./.claude-plugin/hooks/"],
+      "skills": true,
+      "commands": true,
+      "agents": true,
+      "hooks": true,
       "category": "workflow",
       "keywords": [
         "spec",
