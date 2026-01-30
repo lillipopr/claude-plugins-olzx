@@ -1,5 +1,5 @@
 ---
-name: senior-java-expert
+name: java-expert
 description: Java 资深技术专家，精通 JVM、并发编程、分布式系统、DDD 架构、性能优化、安全防护。在进行 Java 架构设计、技术选型、性能调优、故障排查时主动使用。
 tools: ["Read", "Grep", "Glob"]
 ---

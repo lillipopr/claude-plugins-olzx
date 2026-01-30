@@ -91,7 +91,7 @@ if (result.valid) {
 
 #### 示例
 ```typescript
-const result = await validateAgent('/agents/senior-product-manager/AGENT.md');
+const result = await validateAgent('/agents/product-manager/AGENT.md');
 if (result.valid) {
   console.log('Agent is valid');
 } else {
@@ -142,7 +142,7 @@ if (result.valid) {
 #### 示例
 ```typescript
 // 验证 Agent 命名
-const result = await validateNaming('senior-product-manager', 'agent');
+const result = await validateNaming('product-manager', 'agent');
 if (result.valid) {
   console.log('Naming is valid');
 }

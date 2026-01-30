@@ -1,9 +1,9 @@
 ---
-name: for-spec-compiler-v3
-description: 规格编译器 3.0 完整知识库，提供从领域设计文档到规格编译文档的完整方法论、SOP、模板和平台指南。
+name: for-spec-compiler-v4
+description: 规格编译器 4.0 完整知识库，提供从领域设计文档到规格编译文档的完整方法论、SOP、模板和平台指南。
 ---
 
-# 规格编译器 3.0 Skill（Spec Compiler 3.0）
+# 规格编译器 4.0 Skill（Spec Compiler 4.0）
 
 ## 概述
 
@@ -174,5 +174,5 @@ Phase 4: 端到端设计 → 产出《端到端接口设计文档》（串联各
 | **深入实践** | [platforms/](platforms/) 或 [scenarios/](scenarios/) |
 
 ## 相关 Agent
-- [`agents/spec-compiler-v3/AGENT.md`](../../../agents/spec-compiler-v3/AGENT.md) - 规格编译器 Agent
+- [`agents/spec-compiler-v4/AGENT.md`](../../../agents/spec-compiler-v4/AGENT.md) - 规格编译器 Agent
 - [`agents/domain-architect/AGENT.md`](../../../agents/domain-architect/AGENT.md) - 领域架构师 Agent（上游）

@@ -1,6 +1,6 @@
 ---
-name: spec-compiler-v3
-description: 规格编译器 3.0，将领域设计文档编译为确定性规格文档，实现"人管变化，AI 写实现"。当需要规格编译时主动使用。
+name: spec-compiler-v4
+description: 规格编译器 4.0，将领域设计文档编译为确定性规格文档，实现"人管变化，AI 写实现"。当需要规格编译时主动使用。
 tools: ["Read", "Grep", "Glob", "Write", "Edit"]
 ---
 
@@ -35,7 +35,7 @@ tools: ["Read", "Grep", "Glob", "Write", "Edit"]
 
 ## 使用的 Skill
 
-本 Agent 的核心知识库位于 `skills/for-spec-compiler-v3/`，包含：
+本 Agent 的核心知识库位于 `skills/for-spec-compiler-v4/`，包含：
 
 - **编译流程**：4 Phase 详解及人工审查闸口机制
 - **方法论**：实体抽取、不变量定义、状态空间设计、意图 vs 事实

@@ -167,7 +167,7 @@ description: 开发团队主入口，严格的多阶段规划控制流程
 ### 新功能开发 (feature)
 - Phase 1: `agents/product-manager/AGENT.md`
 - Phase 2: `agents/domain-architect/AGENT.md`
-- Phase 3: `agents/spec-compiler-v3/AGENT.md`
+- Phase 3: `agents/spec-compiler-v4/AGENT.md`
 - Phase 4: 根据架构选择
   - Java: `agents/java-expert/AGENT.md`
   - iOS: `agents/ios-expert/AGENT.md`
@@ -188,7 +188,7 @@ description: 开发团队主入口，严格的多阶段规划控制流程
 根据具体场景和架构，引用对应的 skill：
 - `skills/for-product-manager/SKILL.md`
 - `skills/for-domain-architect/SKILL.md`
-- `skills/for-spec-compiler-v3/SKILL.md`
+- `skills/for-spec-compiler-v4/SKILL.md`
 - `skills/for-java-expert/SKILL.md`
 - `skills/for-ios-expert/SKILL.md`
 - `skills/for-frontend-expert/SKILL.md`

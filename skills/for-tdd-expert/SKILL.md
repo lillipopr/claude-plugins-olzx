@@ -32,4 +32,4 @@ description: 资深测试工程师知识库，提供 TDD 方法论、测试生�
 - [覆盖率目标](05-test-generation.md)
 
 ### 相关 Agent
-- `agents/senior-test-engineer/AGENT.md`
+- `agents/tdd-expert.md`

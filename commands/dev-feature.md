@@ -26,7 +26,7 @@ description: 新功能开发完整流程，4 个 Phase，每个阶段强制 plan
 │   planner → domain-architect → checkpoint                   │
 ├─────────────────────────────────────────────────────────────┤
 │ Phase 3: Spec Modeling（规格建模）                          │
-│   planner → spec-compiler-v3 → checkpoint                   │
+│   planner → spec-compiler-v4 → checkpoint                   │
 ├─────────────────────────────────────────────────────────────┤
 │ Phase 4: Artifact Derivation（工件推导）                    │
 │   planner → {java/ios/frontend}-expert → checkpoint         │
@@ -210,13 +210,13 @@ description: 新功能开发完整流程，4 个 Phase，每个阶段强制 plan
 
 ### Step 2: 执行 Agent
 
-- **Agent**: `agents/spec-compiler-v3/AGENT.md`
-- **Skill**: `skills/for-spec-compiler-v3/SKILL.md`
+- **Agent**: `agents/spec-compiler-v4/AGENT.md`
+- **Skill**: `skills/for-spec-compiler-v4/SKILL.md`
 - **工作流**:
-  - `skills/for-spec-compiler-v3/sop/phase-1-modeling.md`
-  - `skills/for-spec-compiler-v3/sop/phase-2-constraints.md`
-  - `skills/for-spec-compiler-v3/sop/phase-3-use-cases.md`
-  - `skills/for-spec-compiler-v3/sop/phase-4-e2e-design.md`
+  - `skills/for-spec-compiler-v4/sop/phase-1-modeling.md`
+  - `skills/for-spec-compiler-v4/sop/phase-2-constraints.md`
+  - `skills/for-spec-compiler-v4/sop/phase-3-use-cases.md`
+  - `skills/for-spec-compiler-v4/sop/phase-4-e2e-design.md`
 
 ### Step 3: Checkpoint 验收
 

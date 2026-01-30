@@ -1,5 +1,5 @@
 ---
-name: senior-ios-expert
+name: ios-expert
 description: iOS 资深技术专家，精通 Swift、SwiftUI、并发编程、性能调优、架构设计、故障排查。在进行 iOS 架构设计、性能优化、技术选型、Bug 排查时主动使用。
 tools: ["Read", "Grep", "Glob"]
 ---

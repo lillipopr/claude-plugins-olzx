@@ -1,0 +1,25 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "spec-compiler-kit-marketplace",
+  "owner": {
+    "name": "zxq",
+    "email": "zxq@example.com"
+  },
+  "metadata": {
+    "description": "Spec Compiler Kit - 本地开发 Marketplace",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "spec-compiler-kit",
+      "description": "规格编译器套件：将模糊需求编译为确定性规格文档，实现'人管变化，AI 写实现'",
+      "version": "2.0.0",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/"],
+      "commands": ["./commands/"],
+      "agents": ["./agents/"],
+      "category": "workflow"
+    }
+  ]
+}

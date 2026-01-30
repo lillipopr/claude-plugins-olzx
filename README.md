@@ -2,6 +2,10 @@
 
 规格编译器套件：将模糊需求编译为确定性规格文档，实现"人管变化，AI 写实现"。
 
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](../../releases/tag/v2.0.0)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
+[![Plugin](https://img.shields.io/badge/Claude_Code-plugin-purple.svg)](#安装)
+
 ## 核心理念
 
 ```
@@ -52,9 +56,26 @@
 
 ```
 spec-compiler-kit/
-├── .claude-plugin/
-│   └── plugin.json              # 插件元数据
+├── .claude-plugin/               # 【插件配置】v2.0 插件化支持
+│   ├── plugin.json              # 插件元数据（v2.0 规范）
+│   ├── marketplace.json         # Marketplace 配置
+│   ├── README.md                # 插件开发指南
+│   ├── HOOKS.md                 # Hooks 开发规范
+│   ├── VERSIONING.md            # 版本管理规范
+│   ├── PUBLISHING.md            # 发布流程指南
+│   ├── hooks/                   # Hooks 脚本目录
+│   │   ├── pre-tool-use/        # 工具执行前钩子
+│   │   │   ├── phase-review-check.md
+│   │   │   └── architecture-check.md
+│   │   ├── post-tool-use/       # 工具执行后钩子
+│   │   ├── session-start/       # 会话开始钩子
+│   │   └── session-end/         # 会话结束钩子
+│   └── scripts/                 # 安装/卸载脚本
+│       ├── pre-install.sh
+│       ├── post-install.sh
+│       └── pre-uninstall.sh
 ├── README.md                     # 项目说明
+├── CHANGELOG.md                  # 版本变更记录
 ├── commands/                     # 【Command 层】用户命令入口
 │   ├── spec.md                  # 主命令（智能路由）
 │   ├── spec-new.md              # 首次功能建设
@@ -63,15 +84,15 @@ spec-compiler-kit/
 │   ├── spec-offline.md          # 功能下线
 │   └── spec-review.md           # 规格审查
 ├── agents/                       # 【Agent 层】按角色命名的执行代理
-│   ├── senior-product-manager/  # 资深产品经理
-│   ├── senior-domain-architect/ # 资深领域架构师
-│   ├── senior-fullstack-engineer/ # 资深全栈工程师
-│   ├── senior-test-engineer/    # 资深测试工程师
-│   ├── senior-project-manager/  # 资深项目经理
-│   ├── senior-java-expert/      # Java 后端专家
-│   ├── senior-ios-expert/       # iOS 开发专家
-│   ├── senior-frontend-expert/  # 前端开发专家
-│   └── senior-database-expert/  # 数据库专家
+│   ├── product-manager/  # 资深产品经理
+│   ├── domain-architect/ # 资深领域架构师
+│   ├── fullstack-engineer/ # 资深全栈工程师
+│   ├── test-engineer/    # 资深测试工程师
+│   ├── project-manager/  # 资深项目经理
+│   ├── java-expert/      # Java 后端专家
+│   ├── ios-expert/       # iOS 开发专家
+│   ├── frontend-expert/  # 前端开发专家
+│   └── database-expert/  # 数据库专家
 ├── skills/                       # 【Skill 层】按角色配备的知识库
 │   ├── for-product-manager/     # 产品经理知识库
 │   ├── for-domain-architect/    # 领域架构师知识库
@@ -102,12 +123,49 @@ spec-compiler-kit/
 
 ### 安装
 
-```bash
-# 方法 1：符号链接（推荐，本地开发）
-ln -s /Users/zxq/data/github/spec-compiler-kit ~/.claude/plugins/local/spec-compiler-kit
+#### 方式一：Local Marketplace（本地开发）
 
-# 方法 2：使用 /plugin install 命令
-/plugin install local /Users/zxq/data/github/spec-compiler-kit
+```bash
+# 创建符号链接到 local marketplace
+ln -s /path/to/spec-compiler-kit ~/.claude/plugins/local/spec-compiler-kit
+
+# 验证安装
+claude-code --plugin list
+```
+
+#### 方式二：直接安装
+
+```bash
+# 从 GitHub 直接安装
+/plugin install https://github.com/lillipopr/spec-compiler-kit
+```
+
+#### 方式三：Public Marketplace（即将推出）
+
+```bash
+# 添加官方 Marketplace
+/plugin marketplace add https://github.com/lillipopr/spec-compiler-plugins
+
+# 安装插件
+/plugin install spec-compiler-kit
+```
+
+### 验证安装
+
+安装后，验证插件是否正确加载：
+
+```bash
+# 查看已安装插件
+/plugin list
+
+# 查看 Agents
+/agent list
+
+# 查看 Skills
+/skill list
+
+# 测试命令
+/help
 ```
 
 ### 命令
@@ -227,6 +285,20 @@ Stage N 完成 → 输出产出物 → 提醒用户 Review → 等待确认 → 
 - `domain/` - 领域特化
 - `templates/` - 文档模板
 
+## 文档
+
+| 文档 | 描述 |
+|------|------|
+| [插件开发指南](.claude-plugin/README.md) | 插件架构、组件说明、开发工作流 |
+| [Hooks 开发规范](.claude-plugin/HOOKS.md) | Hook 类型、编写规范、最佳实践 |
+| [版本管理规范](.claude-plugin/VERSIONING.md) | 版本号格式、发布流程、升级指南 |
+| [发布流程指南](.claude-plugin/PUBLISHING.md) | 发布方式、Marketplace 配置、更新流程 |
+| [变更记录](CHANGELOG.md) | 版本历史、功能变更、迁移指南 |
+
+## 贡献
+
+欢迎贡献！请查看 [插件开发指南](.claude-plugin/README.md#贡献指南) 了解详情。
+
 ## 许可证
 
-MIT License
+[MIT License](./LICENSE)

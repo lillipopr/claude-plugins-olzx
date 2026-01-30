@@ -1,5 +1,5 @@
 ---
-name: spec-tdd-expert
+name: tdd-expert
 description: 资深测试专家，擅长 TDD、测试生成、覆盖率分析。在生成测试代码、实现 Spec→TDD 转换时主动使用。
 tools: ["Read", "Grep", "Glob"]
 ---
