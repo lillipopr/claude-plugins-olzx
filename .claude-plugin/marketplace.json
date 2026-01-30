@@ -3,11 +3,12 @@
   "name": "spec-compiler-kit-marketplace",
   "owner": {
     "name": "zxq",
-    "email": "zxq@example.com"
+    "email": "zxq@olzx-ai.com",
+    "url": "https://github.com/lillipopr"
   },
   "metadata": {
-    "description": "Spec Compiler Kit - 本地开发 Marketplace",
-    "version": "1.0.0"
+    "description": "Spec Compiler Kit - 将模糊需求编译为确定性规格文档，实现'人管变化，AI 写实现'",
+    "version": "2.0.0"
   },
   "plugins": [
     {
@@ -16,10 +17,48 @@
       "version": "2.0.0",
       "source": "./",
       "strict": false,
+      "author": {
+        "name": "zxq",
+        "email": "zxq@olzx-ai.com",
+        "url": "https://github.com/lillipopr"
+      },
+      "homepage": "https://github.com/lillipopr/spec-compiler-kit",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/lillipopr/spec-compiler-kit.git"
+      },
+      "bugs": "https://github.com/lillipopr/spec-compiler-kit/issues",
+      "license": "MIT",
       "skills": ["./skills/"],
       "commands": ["./commands/"],
       "agents": ["./agents/"],
-      "category": "workflow"
+      "hooks": ["./.claude-plugin/hooks/"],
+      "category": "workflow",
+      "keywords": [
+        "spec",
+        "compiler",
+        "ddd",
+        "modeling",
+        "architecture",
+        "tdd",
+        "phase",
+        "review",
+        "hooks",
+        "workflow"
+      ],
+      "tags": [
+        "spec",
+        "compiler",
+        "ddd",
+        "modeling",
+        "architecture",
+        "tdd",
+        "java",
+        "swift",
+        "vue",
+        "phase-review",
+        "architecture-check"
+      ]
     }
   ]
 }

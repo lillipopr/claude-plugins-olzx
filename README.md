@@ -58,19 +58,24 @@
 spec-compiler-kit/
 ├── .claude-plugin/               # 【插件配置】v2.0 插件化支持
 │   ├── plugin.json              # 插件元数据（v2.0 规范）
-│   ├── marketplace.json         # Marketplace 配置
+│   ├── marketplace.json         # Marketplace 配置（支持 hooks 安装）
 │   ├── README.md                # 插件开发指南
 │   ├── HOOKS.md                 # Hooks 开发规范
 │   ├── VERSIONING.md            # 版本管理规范
 │   ├── PUBLISHING.md            # 发布流程指南
-│   ├── hooks/                   # Hooks 脚本目录
-│   │   ├── pre-tool-use/        # 工具执行前钩子
+│   ├── hooks/                   # Hooks 配置目录
+│   │   ├── hooks.json           # Hook 执行配置（PreToolUse）
+│   │   ├── pre-tool-use/        # Hook 定义文档
 │   │   │   ├── phase-review-check.md
 │   │   │   └── architecture-check.md
 │   │   ├── post-tool-use/       # 工具执行后钩子
 │   │   ├── session-start/       # 会话开始钩子
 │   │   └── session-end/         # 会话结束钩子
-│   └── scripts/                 # 安装/卸载脚本
+│   └── scripts/
+│       ├── hooks/               # 可执行 Hook 脚本
+│       │   ├── phase-review-check.js    # Phase 审查闸口
+│       │   ├── architecture-check.js    # 架构分层检查
+│       │   └── README.md               # Hooks 使用说明
 │       ├── pre-install.sh
 │       ├── post-install.sh
 │       └── pre-uninstall.sh
@@ -196,6 +201,46 @@ claude-code --plugin list
 | **iOS MVVM** | View → ViewModel → Service → Gateway → Network | `ios-mvvm-layers.md` |
 | **Vue 3** | View → Composable → Service → API → Request | `vue3-layers.md` |
 
+## Hooks 功能
+
+插件包含可执行的 Quality Gate Hooks，在编辑时自动检查合规性：
+
+### Phase 审查闸口（Critical）
+
+**触发条件**：编辑 `*.spec.md` 或 `PRD.md` 文件
+
+**功能**：
+- 确保 Phase N+1 编辑前，Phase N 已人工审查通过
+- 阻止跳过审查闸口的编辑操作
+
+**审查状态标记**：
+```markdown
+<!-- REVIEW STATUS: APPROVED - 2025-01-31T10:00:00.000Z - zxq -->
+审查意见：实体定义完整，状态转移清晰。
+```
+
+### 架构分层检查（High）
+
+**触发条件**：编辑 `*.java`, `*.swift`, `*.vue`, `*.ts`, `*.tsx` 文件
+
+**功能**：
+- 检测违反分层架构的依赖关系
+- 输出违规警告（不阻止编辑）
+
+**支持架构**：
+- **Java DDD**: Controller → Application → Domain ← Gateway, Mapper
+- **iOS MVVM**: View → ViewModel → Service → Gateway → Network
+- **Vue 3**: View → Composable → Service → API → Request
+
+**警告示例**：
+```
+⚠️ 架构分层警告：检测到违规依赖
+文件: src/main/java/controller/UserController.java
+违规: com.example.mapper.UserMapper (Controller 只能调用 Application)
+```
+
+> 详细说明请参考 [Hooks 使用指南](.claude-plugin/scripts/hooks/README.md)
+
 ## 核心原则
 
 ### 闸口控制
@@ -286,6 +331,7 @@ Stage N 完成 → 输出产出物 → 提醒用户 Review → 等待确认 → 
 |------|------|
 | [插件开发指南](.claude-plugin/README.md) | 插件架构、组件说明、开发工作流 |
 | [Hooks 开发规范](.claude-plugin/HOOKS.md) | Hook 类型、编写规范、最佳实践 |
+| [Hooks 使用指南](.claude-plugin/scripts/hooks/README.md) | Hook 脚本使用、配置、调试 |
 | [版本管理规范](.claude-plugin/VERSIONING.md) | 版本号格式、发布流程、升级指南 |
 | [发布流程指南](.claude-plugin/PUBLISHING.md) | 发布方式、Marketplace 配置、更新流程 |
 | [变更记录](CHANGELOG.md) | 版本历史、功能变更、迁移指南 |
