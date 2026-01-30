@@ -93,7 +93,7 @@ spec-compiler-kit/
 
 | 层级 | 目录 | 职责 | 关系 |
 |------|------|------|------|
-| **Command 层** | `commands/` | 面向用户的 `/spec-*` 命令入口 | 路由到合适的 Agent |
+| **Command 层** | `commands/` | 面向用户的 `/dev-*` 命令入口 | 路由到合适的 Agent |
 | **Agent 层** | `agents/` | 实际执行任务、多次 tool 调用、决策、状态管理 | 按角色命名，引用对应 Skill |
 | **Skill 层** | `skills/` | 提供领域知识、方法论、SOP、模板、设计模式、原则 | 按角色配备 |
 | **Tools 层** | `tools/` | 读写文件、搜索、执行命令等 | 主动操作资源 |
@@ -113,22 +113,27 @@ ln -s /Users/zxq/data/github/spec-compiler-kit ~/.claude/plugins/local/spec-comp
 ### 命令
 
 ```bash
-/spec              # 交互式选择场景
-/spec new          # 首次功能建设
-/spec iter         # 功能迭代
-/spec fix          # Bug 修复
-/spec offline      # 功能下线
-/spec review       # 审查规格文档
+/dev               # 交互式选择场景
+/dev feature       # 新功能开发（4 Phase 完整流程）
+/dev fix           # Bug 修复
+/dev refactor      # 代码重构
+/dev review        # 代码审查
+/dev test          # 测试相关
+/dev security      # 安全审查
+/dev pr            # 创建 PR
 ```
 
 ## 场景支持
 
 | 场景 | 命令 | 执行阶段 | 说明 |
 |------|------|---------|------|
-| **首次功能建设** | `/spec-new` | 1 → 2 → 3 → 4 | 完整流程 |
-| **功能迭代** | `/spec-iter` | 2 → 3 → 4 | 基于已有 PRD 增量更新 |
-| **Bug 修复** | `/spec-fix` | 3 → 4 | 定位问题 → 补充用例 → 推导修复 |
-| **功能下线** | `/spec-offline` | 3 → 4（逆向） | 删除用例 → 删除工件 → 清理代码 |
+| **新功能开发** | `/dev-feature` | PRD → DDD → 建模 → 实现 | 完整流程，每阶段 planner 规划 |
+| **Bug 修复** | `/dev-fix` | 用例补充 → 推导修复 → 验证 | TDD 方法 |
+| **代码重构** | `/dev-refactor` | 规划范围 → 执行 → 验证 | 重构规划控制 |
+| **代码审查** | `/dev-review` | 规划 → 执行审查 → 输出报告 | 多维度审查 |
+| **测试相关** | `/dev-test` | 规划 → 生成测试 → 验证覆盖率 | 覆盖率 80%+ |
+| **安全审查** | `/dev-security` | 规划 → 安全检查 → 修复建议 | OWASP Top 10 |
+| **创建 PR** | `/dev-pr` | 分析变更 → 生成摘要 → 创建 | 自动生成 PR 描述 |
 
 ## 支持架构
 

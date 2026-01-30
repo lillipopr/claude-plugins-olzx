@@ -164,7 +164,7 @@ if (result.valid) {
 
 #### 示例
 ```typescript
-const result = await validateReferences('/commands/spec-new.md');
+const result = await validateReferences('/commands/dev-feature.md');
 if (result.valid) {
   console.log('All references are valid');
 } else {
