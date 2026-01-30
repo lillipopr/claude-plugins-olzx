@@ -1,21 +1,26 @@
 ---
-name: ddd
-description: 调用领域架构师，处理 DDD 设计的创建/修改/Review
+description: 调用领域架构师，处理 DDD 设计的创建/修改/Review。设计聚合根、实体、值对象、领域服务，绘制上下文映射图。
 ---
 
 # /ddd - 领域架构师命令
 
-## 描述
+此命令调用 **domain-architect** Agent，处理领域驱动设计（DDD）文档的全生命周期。
 
-调用资深领域架构师，处理 DDD 设计文档的创建、修改和审查。
+## 此命令的作用
 
-## 使用方式
+1. **创建 DDD 设计** - 从 PRD 到领域模型设计
+2. **修改 DDD 设计** - 分析变更影响范围，更新领域模型
+3. **Review DDD 设计** - 检查领域模型设计质量
 
-```bash
-/ddd
-```
+## 何时使用
 
-## 场景选择
+使用 `/ddd` 时：
+- 已有 PRD 文档，需要进行领域建模
+- 需要修改现有 DDD 设计
+- 需要审查 DDD 设计质量
+- 需要设计跨端一致的领域模型
+
+## 工作流程
 
 ### 1. 创建 DDD 设计
 
@@ -72,11 +77,21 @@ description: 调用领域架构师，处理 DDD 设计的创建/修改/Review
 | 上下文映射 | 映射关系明确，合作模式清晰 |
 | 不变量 | 每个聚合的不变量明确 |
 
-## 相关文档
+## 与其他命令的集成
 
-- [领域架构师 Skill](../skills/for-domain-architect/SKILL.md)
-- [DDD 方法论](../skills/for-domain-architect/references/methodology/ddd.md)
-- [DDD 模板](../skills/for-domain-architect/references/templates/ddd-template.md)
+**前置命令：**
+- `/prd` - 创建 PRD 文档（DDD 设计的输入）
+
+**后续命令：**
+- `/spec` - 创建规格文档（基于 DDD 设计和 PRD）
+
+## 相关 Agent
+
+此命令调用位于以下位置的 `domain-architect` Agent：
+`./agents/domain-architect.md`
+
+并可引用位于以下位置的 `for-domain-architect` Skill：
+`./skills/for-domain-architect/SKILL.md`
 
 ## 示例
 

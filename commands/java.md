@@ -1,21 +1,46 @@
 ---
-name: java
-description: 调用 Java 专家，实现后端代码/Review/Bugfix
+description: 调用 Java 后端专家，实现后端代码/Review/Bugfix。遵循 Java DDD 分层架构（Controller → Application → Domain → Gateway/Infra → Mapper），确保 SOLID 原则。
 ---
 
 # /java - Java 工程师命令
 
-## 描述
+此命令调用 **java-expert** Agent，处理后端代码的实现、审查和 Bug 修复。
 
-调用 Java 后端专家，实现规格文档的后端部分，并负责代码审查和 Bug 修复。
+## 此命令的作用
 
-## 使用方式
+1. **实现后端代码** - 基于规格文档生成 DDD 分层代码
+2. **Review 代码** - 检查架构规范、SOLID 原则、代码质量
+3. **修复 Bug** - 分析根因、设计修复方案、验证修复
 
-```bash
-/java
+## 何时使用
+
+使用 `/java` 时：
+- 已有规格文档，需要实现后端代码
+- 需要审查 Java 代码质量
+- 需要修复后端 Bug
+- 需要验证 DDD 分层架构规范
+
+## Java DDD 分层架构
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        Java DDD 分层架构                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Controller      │ 接收请求、参数校验、调用 Application           │
+│  ─────────────────────────────────────────────────────────────  │
+│  Application     │ 用例编排、事务管理、调用 Domain                │
+│  ─────────────────────────────────────────────────────────────  │
+│  Domain          │ 业务逻辑、不变量校验、领域事件                 │
+│  ─────────────────────────────────────────────────────────────  │
+│  Gateway/Infra   │ 外部服务调用、消息发送                         │
+│  ─────────────────────────────────────────────────────────────  │
+│  Mapper          │ 数据库 CRUD、ORM 映射                         │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-## 场景选择
+## 工作流程
 
 ### 1. 实现后端代码
 
@@ -120,11 +145,24 @@ description: 调用 Java 专家，实现后端代码/Review/Bugfix
 | 测试覆盖率 | 80%+ |
 | 安全性 | 通过安全检查清单 |
 
-## 相关文档
+## 与其他命令的集成
 
-- [Java 专家 Skill](../skills/for-java-expert/SKILL.md)
-- [Java DDD 分层规范](../rules/architecture/java-ddd-layers.md)
-- [代码模板](../skills/for-java-expert/references/templates/)
+**前置命令：**
+- `/spec` - 创建规格文档（后端实现的输入）
+
+**配合命令：**
+- `/tdd` - 编写/补充测试用例
+
+## 相关 Agent
+
+此命令调用位于以下位置的 `java-expert` Agent：
+`./agents/java-expert.md`
+
+并可引用位于以下位置的 `for-java-expert` Skill：
+`./skills/for-java-expert/SKILL.md`
+
+以及位于以下位置的 Java DDD 分层规范：
+`./rules/architecture/java-ddd-layers.md`
 
 ## 示例
 

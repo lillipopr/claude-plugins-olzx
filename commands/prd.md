@@ -1,21 +1,26 @@
 ---
-name: prd
-description: 调用产品经理，处理 PRD 的创建/修改/Review
+description: 调用资深产品经理，处理 PRD 的创建/修改/Review。分析需求可行性、编写完整 PRD、验证需求清晰度。
 ---
 
 # /prd - 产品经理命令
 
-## 描述
+此命令调用 **product-manager** Agent，处理产品需求文档（PRD）的全生命周期。
 
-调用资深产品经理，处理产品需求文档（PRD）的创建、修改和审查。
+## 此命令的作用
 
-## 使用方式
+1. **创建 PRD** - 从模糊需求到结构化 PRD 文档
+2. **修改 PRD** - 分析变更影响范围，更新文档
+3. **Review PRD** - 检查完整性、清晰度、可测试性
 
-```bash
-/prd
-```
+## 何时使用
 
-## 场景选择
+使用 `/prd` 时：
+- 有新功能需求，需要编写 PRD
+- 需要修改现有 PRD
+- 需要审查 PRD 质量
+- 需求描述模糊，需要结构化整理
+
+## 工作流程
 
 执行命令后，会提示选择场景：
 
@@ -66,10 +71,19 @@ description: 调用产品经理，处理 PRD 的创建/修改/Review
 | 用户价值 | 清晰描述用户价值 |
 | 业务规则 | 明确业务规则和约束 |
 
-## 相关文档
+## 与其他命令的集成
 
-- [产品经理 Skill](../skills/for-product-manager/SKILL.md)
-- [PRD 模板](../skills/for-product-manager/references/templates/prd-template.md)
+**后续命令：**
+- `/ddd` - 创建 DDD 设计文档（基于 PRD）
+- `/spec` - 创建规格文档（基于 PRD 和 DDD 设计）
+
+## 相关 Agent
+
+此命令调用位于以下位置的 `product-manager` Agent：
+`./agents/product-manager.md`
+
+并可引用位于以下位置的 `for-product-manager` Skill：
+`./skills/for-product-manager/SKILL.md`
 
 ## 示例
 

@@ -1,21 +1,40 @@
 ---
-name: tdd
-description: 调用 TDD 专家，编写和执行单元测试/集成测试/端到端测试
+description: 强制执行测试驱动开发工作流。先搭建接口、先生成测试（RED），然后实现最小代码（GREEN），最后重构（REFACTOR）。确保 80%+ 覆盖率。
 ---
 
 # /tdd - TDD 测试专家命令
 
-## 描述
+此命令调用 **tdd-expert** Agent，强制执行测试驱动开发（TDD）方法论。
 
-调用 TDD 测试专家，编写和执行单元测试、集成测试、端到端测试。
+## 此命令的作用
 
-## 使用方式
+1. **搭建接口** - 首先定义类型/接口
+2. **先生成测试** - 编写失败的测试（RED）
+3. **实现最小代码** - 编写刚好能通过的代码（GREEN）
+4. **重构** - 在保持测试通过的同时改进代码（REFACTOR）
+5. **验证覆盖率** - 确保 80%+ 测试覆盖率
 
-```bash
-/tdd
+## 何时使用
+
+使用 `/tdd` 时：
+- 实现新功能
+- 添加新函数/组件
+- 修复 bug（先编写重现 bug 的测试）
+- 重构现有代码
+- 构建核心业务逻辑
+
+## TDD 循环
+
+```
+RED → GREEN → REFACTOR → REPEAT
+
+RED:      编写失败的测试
+GREEN:    编写最小代码使其通过
+REFACTOR: 改进代码，保持测试通过
+REPEAT:   下一个功能/场景
 ```
 
-## 场景选择
+## 工作流程
 
 ### 1. 编写单元测试
 
@@ -95,11 +114,18 @@ RED（写测试）→ GREEN（实现）→ REFACTOR（重构）
 | 集成测试 | 关键路径 100% | 接口契约、协作流程 |
 | E2E 测试 | 核心流程 100% | 用户价值、跨端协作 |
 
-## 相关文档
+## 与其他命令的集成
 
-- [TDD 专家 Skill](../skills/for-tdd-expert/SKILL.md)
-- [TDD 工作流](../skills/for-tdd-expert/references/sop/tdd-workflow.md)
-- [测试模板](../skills/for-tdd-expert/references/templates/)
+- `/spec` - 基于规格文档编写测试
+- `/java`、`/ios`、`/front` - 实现代码后补充测试
+
+## 相关 Agent
+
+此命令调用位于以下位置的 `tdd-expert` Agent：
+`./agents/tdd-expert.md`
+
+并可引用位于以下位置的 `for-tdd-expert` Skill：
+`./skills/for-tdd-expert/SKILL.md`
 
 ## 示例
 

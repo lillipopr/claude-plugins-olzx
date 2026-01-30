@@ -1,21 +1,46 @@
 ---
-name: ios
-description: 调用 iOS 专家，实现 iOS 代码/Review/Bugfix
+description: 调用 iOS 专家，实现 iOS 代码/Review/Bugfix。遵循 iOS MVVM 分层架构（View → ViewModel → Service → Gateway → Network），确保 SwiftUI 最佳实践和并发安全。
 ---
 
 # /ios - iOS 工程师命令
 
-## 描述
+此命令调用 **ios-expert** Agent，处理 iOS 代码的实现、审查和 Bug 修复。
 
-调用 iOS 专家，实现规格文档的 iOS 部分，并负责代码审查和 Bug 修复。
+## 此命令的作用
 
-## 使用方式
+1. **实现 iOS 代码** - 基于规格文档生成 MVVM 分层代码
+2. **Review 代码** - 检查 MVVM 架构规范、SwiftUI 最佳实践
+3. **修复 Bug** - 分析根因、设计修复方案、验证修复
 
-```bash
-/ios
+## 何时使用
+
+使用 `/ios` 时：
+- 已有规格文档，需要实现 iOS 代码
+- 需要审查 iOS 代码质量
+- 需要修复 iOS Bug
+- 需要验证 MVVM 分层架构规范
+
+## iOS MVVM 分层架构
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        iOS MVVM 分层架构                           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  View            │ SwiftUI 视图、用户交互                         │
+│  ─────────────────────────────────────────────────────────────  │
+│  ViewModel       │ @Published 状态管理、业务编排、调用 Service     │
+│  ─────────────────────────────────────────────────────────────  │
+│  Service         │ 业务逻辑、数据转换、不变量校验                   │
+│  ─────────────────────────────────────────────────────────────  │
+│  Gateway         │ 接口聚合、缓存策略、离线支持                     │
+│  ─────────────────────────────────────────────────────────────  │
+│  Network         │ HTTP 请求、响应解析、错误映射                    │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-## 场景选择
+## 工作流程
 
 ### 1. 实现 iOS 代码
 
@@ -127,11 +152,24 @@ description: 调用 iOS 专家，实现 iOS 代码/Review/Bugfix
 | 内存管理 | 无内存泄漏、无强引用循环 |
 | 测试覆盖率 | 80%+ |
 
-## 相关文档
+## 与其他命令的集成
 
-- [iOS 专家 Skill](../skills/for-ios-expert/SKILL.md)
-- [iOS MVVM 分层规范](../rules/architecture/ios-mvvm-layers.md)
-- [代码模板](../skills/for-ios-expert/references/templates/)
+**前置命令：**
+- `/spec` - 创建规格文档（iOS 实现的输入）
+
+**配合命令：**
+- `/tdd` - 编写/补充测试用例
+
+## 相关 Agent
+
+此命令调用位于以下位置的 `ios-expert` Agent：
+`./agents/ios-expert.md`
+
+并可引用位于以下位置的 `for-ios-expert` Skill：
+`./skills/for-ios-expert/SKILL.md`
+
+以及位于以下位置的 iOS MVVM 分层规范：
+`./rules/architecture/ios-mvvm-layers.md`
 
 ## 示例
 
