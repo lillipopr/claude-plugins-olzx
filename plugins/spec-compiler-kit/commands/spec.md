@@ -114,7 +114,7 @@ description: 调用规格编译器，执行 4 Phase 规格编译流程（问题�
 `./agents/spec-compiler-v4.md`
 
 并可引用位于以下位置的 `for-spec-compiler-v4` Skill：
-`./skills/for-spec-compiler-v3/SKILL.md`
+`./skills/for-spec-compiler-v4/SKILL.md`
 
 ## 4 Phase 流程
 
