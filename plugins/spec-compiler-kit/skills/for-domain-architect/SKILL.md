@@ -1,107 +1,132 @@
 ---
 name: for-domain-architect
-description: 资深领域架构师，负责将 PRD 文档转化为完整的《领域设计文档》。包含战略设计、战术设计、约束定义、用例设计四部分，提供完整的 SOP、评分标准（90 分及格线）、检查清单和模板。使用场景：(1) 创建新的领域设计文档 (2) 迭代现有设计 (3) Review 设计质量
+description: 资深领域架构师，负责将 PRD 文档转化为完整的《领域设计文档》。按章节顺序生成：限界上下文 → 聚合设计 → 领域服务 → 应用层 → 领域事件 → 入口层。每章完成后自检评分 ≥60 分，全部完成后综合评分 ≥90 分交付。
 ---
 
 # 资深领域架构师 Skill
 
 ## 核心能力
 
-将 PRD 文档转化为《领域设计文档》，包含四个部分：
+将 PRD 文档转化为《领域设计文档》，按 **6 个章节**顺序生成：
 
-1. **战略设计**：业务能力分析、限界上下文划分、上下文映射
-2. **战术设计**：聚合设计、实体/值对象、领域事件、领域服务、仓储接口、应用层接口
-3. **约束定义**：状态定义、状态转移、不变量、禁止态、执行时机、处理策略
-4. **用例设计**：正向用例、Bad Case、边界用例、覆盖矩阵、优先级
+1. **第一章：限界上下文设计** - 业务能力分析、上下文划分、上下文映射
+2. **第二章：聚合设计** - 聚合总览、聚合根设计、实体设计、值对象设计
+3. **第三章：领域服务设计** - 领域服务判断、服务列表、服务详细设计
+4. **第四章：应用层设计** - 应用服务列表、用户行为列表、系统行为列表
+5. **第五章：领域事件** - 事件列表、事件详细设计
+6. **第六章：入口层设计** - Controller 层、MQ 层、Task 层
+
+---
 
 ## 质量保证机制
 
-**90 分及格线**：每部分独立评分，加权计算总分，任一部分 < 60 分则直接不合格。
+**90 分及格线**：每章独立评分，全部完成后综合评分，任一章 < 60 分则不合格。
 
 ```
-总分 = Part-1×20% + Part-2×30% + Part-3×25% + Part-4×25%
+综合评分 = (Chapter-1 + Chapter-2 + Chapter-3 + Chapter-4 + Chapter-5 + Chapter-6) / 6
 ```
 
-## 工作流程
+---
 
-完整工作流程见 [sop/sop-document-workflow.md](sop/sop-document-workflow.md)
+## 分章节生成流程
 
 ```
-输入：PRD 文档 / 用户需求
+输入：PRD 文档
   ↓
-阶段 1：准备工作（读取 PRD，确定范围）
+第一章：限界上下文设计 → 自检评分 → ≥60 分通过
   ↓
-阶段 2：按部分逐个设计（每部分完成后自检评分）
-  ├── 2.1 战略设计 → 使用 strategic-checklist.md 自检 → ≥60 分通过
-  ├── 2.2 战术设计 → 使用 tactical-checklist.md 自检 → ≥60 分通过
-  ├── 2.3 约束定义 → 使用 constraint-checklist.md 自检 → ≥60 分通过
-  └── 2.4 用例设计 → 使用 usecase-checklist.md 自检 → ≥60 分通过
+第二章：聚合设计 → 自检评分 → ≥60 分通过
   ↓
-阶段 3：综合评分（加权计算，总分 ≥90 分才能交付）
+第三章：领域服务设计 → 自检评分 → ≥60 分通过
   ↓
-阶段 4：交付（生成交付报告，等待用户 Review）
+第四章：应用层设计 → 自检评分 → ≥60 分通过
+  ↓
+第五章：领域事件 → 自检评分 → ≥60 分通过
+  ↓
+第六章：入口层设计 → 自检评分 → ≥60 分通过
+  ↓
+综合评分 → 总分 ≥90 分交付
 ```
 
-## 目录结构
+---
 
-### 工作流程与 SOP（按使用顺序）
+## 章节生成指令
 
-| 文件 | 使用时机 | 说明 |
-|------|----------|------|
-| [sop/sop-document-workflow.md](sop/sop-document-workflow.md) | **首先阅读** | 完整的创建/迭代工作流程，包含评分机制 |
-| [sop/sop-main-flow.md](sop/sop-main-flow.md) | 设计过程中 | 各部分设计 SOP 的导航文档 |
-| [sop/sop-constraints.md](sop/sop-constraints.md) | 第三部分 | 约束定义详细 SOP |
-| [sop/sop-use-cases.md](sop/sop-use-cases.md) | 第四部分 | 用例设计详细 SOP |
+| 章节 | 文件 | 说明 |
+|------|------|------|
+| 第一章 | [chapters/chapter-01-bounded-context.md](chapters/chapter-01-bounded-context.md) | 限界上下文设计 |
+| 第二章 | [chapters/chapter-02-aggregate.md](chapters/chapter-02-aggregate.md) | 聚合设计 |
+| 第三章 | [chapters/chapter-03-domain-service.md](chapters/chapter-03-domain-service.md) | 领域服务设计 |
+| 第四章 | [chapters/chapter-04-application.md](chapters/chapter-04-application.md) | 应用层设计 |
+| 第五章 | [chapters/chapter-05-domain-event.md](chapters/chapter-05-domain-event.md) | 领域事件 |
+| 第六章 | [chapters/chapter-06-gateway.md](chapters/chapter-06-gateway.md) | 入口层设计 |
 
-### 评分标准（每部分完成后使用）
+---
 
-| 文件 | 对应部分 | 满分 | 权重 |
-|------|----------|------|------|
-| [scoring/strategic-scoring.md](scoring/01-strategic-scoring.md) | 战略设计 | 100 | 20% |
-| [scoring/tactical-scoring.md](scoring/02-tactical-scoring.md) | 战术设计 | 100 | 30% |
-| [scoring/constraint-scoring.md](scoring/03-constraint-scoring.md) | 约束定义 | 100 | 25% |
-| [scoring/usecase-scoring.md](scoring/04-use-case-scoring.md) | 用例设计 | 100 | 25% |
+## 参考资料
 
-### 检查清单（每部分完成后自检）
-
-| 文件 | 对应部分 |
-|------|----------|
-| [checklists/strategic-checklist.md](checklists/strategic-checklist.md) | 战略设计 |
-| [checklists/tactical-checklist.md](checklists/tactical-checklist.md) | 战术设计 |
-| [checklists/constraint-checklist.md](checklists/constraint-checklist.md) | 约束定义 |
-| [checklists/usecase-checklist.md](checklists/usecase-checklist.md) | 用例设计 |
-| [checklists/review-checklist.md](checklists/review-checklist.md) | 最终审查 |
-
-### 设计原则（设计时参考）
+### 方法论文档（设计时参考）
 
 | 文件 | 说明 |
 |------|------|
-| [principles/ddd-principles.md](principles/ddd-principles.md) | DDD 核心原则 |
-| [principles/aggregate-principles.md](principles/aggregate-principles.md) | 聚合设计原则 |
-| [principles/invariant-principles.md](principles/invariant-principles.md) | **不变量原则**（三测试） |
-| [principles/modeling-principles.md](principles/modeling-principles.md) | 领域建模原则 |
-
-### 方法论（设计时参考）
-
-| 文件 | 说明 |
-|------|------|
-| [methodology/entity-extraction.md](methodology/entity-extraction.md) | 实体抽取方法论（三条件筛选） |
-| [methodology/aggregate-design.md](methodology/aggregate-design.md) | 聚合设计方法论 |
-| [methodology/context-mapping.md](methodology/context-mapping.md) | 上下文映射方法论 |
-| [methodology/domain-event.md](methodology/domain-event.md) | 领域事件设计方法论 |
+| [references/methodology/business-capability.md](references/methodology/business-capability.md) | 业务能力分析 |
+| [references/methodology/aggregate-design.md](references/methodology/aggregate-design.md) | 聚合设计方法论 |
+| [references/methodology/context-mapping.md](references/methodology/context-mapping.md) | 上下文映射方法论 |
+| [references/methodology/domain-event.md](references/methodology/domain-event.md) | 领域事件设计方法论 |
+| [references/methodology/entity-extraction.md](references/methodology/entity-extraction.md) | 实体抽取方法论 |
+| [references/methodology/vo-design.md](references/methodology/vo-design.md) | 值对象设计方法论 |
+| [references/methodology/bounded-context.md](references/methodology/bounded-context.md) | 限界上下文方法论 |
 
 ### 设计模式（设计时参考）
 
 | 文件 | 说明 |
 |------|------|
-| [patterns/ddd-patterns.md](patterns/ddd-patterns.md) | DDD 战略设计模式 |
-| [patterns/tactical-patterns.md](patterns/tactical-patterns.md) | DDD 战术设计模式 |
+| [references/patterns/ddd-patterns.md](references/patterns/ddd-patterns.md) | DDD 战略设计模式 |
+| [references/patterns/tactical-patterns.md](references/patterns/tactical-patterns.md) | DDD 战术设计模式 |
+
+### 设计原则（设计时参考）
+
+| 文件 | 说明 |
+|------|------|
+| [references/principles/ddd-principles.md](references/principles/ddd-principles.md) | DDD 核心原则 |
+| [references/principles/aggregate-principles.md](references/principles/aggregate-principles.md) | 聚合设计原则 |
+| [references/principles/invariant-principles.md](references/principles/invariant-principles.md) | 不变量原则 |
+| [references/principles/modeling-principles.md](references/principles/modeling-principles.md) | 领域建模原则 |
+
+### 检查清单（每章完成后自检）
+
+| 文件 | 对应章节 |
+|------|----------|
+| [references/checklists/strategic-checklist.md](references/checklists/strategic-checklist.md) | 第一章 |
+| [references/checklists/tactical-checklist.md](references/checklists/tactical-checklist.md) | 第二章、第三章、第五章 |
+| [references/checklists/usecase-checklist.md](references/checklists/usecase-checklist.md) | 第二章、第三章、第四章 |
+| [references/checklists/review-checklist.md](references/checklists/review-checklist.md) | 最终审查 |
+
+### 评分标准（每章完成后使用）
+
+| 文件 | 对应章节 | 满分 |
+|------|----------|------|
+| [references/scoring/strategic-scoring.md](references/scoring/strategic-scoring.md) | 第一章 | 100 |
+| [references/scoring/tactical-scoring.md](references/scoring/tactical-scoring.md) | 第二章、第三章、第五章 | 100 |
+| [references/scoring/constraint-scoring.md](references/scoring/constraint-scoring.md) | 第二章、第三章、第四章 | 100 |
+| [references/scoring/use-case-scoring.md](references/scoring/use-case-scoring.md) | 第二章、第三章、第四章 | 100 |
+
+### SOP 文档
+
+| 文件 | 说明 |
+|------|------|
+| [references/sop/sop-document-workflow.md](references/sop/sop-document-workflow.md) | 完整工作流程 |
+| [references/sop/sop-main-flow.md](references/sop/sop-main-flow.md) | 主流程 SOP |
+| [references/sop/sop-constraints.md](references/sop/sop-constraints.md) | 约束定义 SOP |
+| [references/sop/sop-use-cases.md](references/sop/sop-use-cases.md) | 用例设计 SOP |
 
 ### 输出模板
 
 | 文件 | 说明 |
 |------|------|
-| [templates/domain-design-template.md](templates/domain-design-template.md) | **领域设计文档模板**（最终产出） |
+| [assets/templates/domain-design-template.md](assets/templates/domain-design-template.md) | **领域设计文档模板**（最终产出） |
+
+---
 
 ## 核心设计原则
 
@@ -114,7 +139,6 @@ description: 资深领域架构师，负责将 PRD 文档转化为完整的《�
 | 状态机建模 | David Harel | 状态图在软件设计中的应用 |
 | 约束优先级 | Michael Jackson | 问题框架方法 |
 
-
 ### 设计质量标准
 
 每个设计元素必须满足：
@@ -123,3 +147,39 @@ description: 资深领域架构师，负责将 PRD 文档转化为完整的《�
 2. **符合最佳实践**：与业内公认的设计模式一致
 3. **可验证**：每个约束可写成 assert，每个用例可转化为测试
 4. **可追溯**：设计决策可追溯到 PRD 需求
+
+---
+
+## 使用场景
+
+(1) **创建新的领域设计文档**：基于 PRD 从零开始创建完整的领域设计文档
+
+(2) **迭代现有设计**：基于新的需求迭代现有的领域设计文档
+
+(3) **Review 设计质量**：使用评分标准和检查清单审查现有设计
+
+---
+
+## 快速开始
+
+### 场景 1：创建新的领域设计文档
+
+1. 用户提供 PRD 文档
+2. 按章节顺序生成（第一章 → 第六章）
+3. 每章完成后自检评分 ≥60 分
+4. 全部完成后综合评分 ≥90 分交付
+
+### 场景 2：迭代现有设计
+
+1. 用户提供现有设计文档和新需求
+2. 识别受影响的章节
+3. 更新受影响的章节
+4. 自检评分 ≥60 分
+5. 综合评分 ≥90 分交付
+
+### 场景 3：Review 设计质量
+
+1. 用户提供现有设计文档
+2. 使用对应的检查清单自检
+3. 使用对应的评分标准评分
+4. 输出评分报告和改进建议
