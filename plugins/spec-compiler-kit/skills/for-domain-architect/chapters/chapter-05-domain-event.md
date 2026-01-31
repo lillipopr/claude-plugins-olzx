@@ -59,7 +59,7 @@
 | 维度 | 命令（Command） | 事件（Event） |
 |------|-----------------|---------------|
 | 时态 | 将来时（要做） | 过去时（已做） |
-| 命名 | ActivateMembership | MembershipActivated |
+| 命名 | ActivateMembership | MembershipActivatedEvent |
 | 来源 | 用户/系统发起 | 聚合发布 |
 | 数量 | 可能多个 | 唯一确定 |
 | 处理 | 可以失败 | 必须成功 |
@@ -68,18 +68,18 @@
 #### 1.4 事件命名规范
 
 ```
-格式：{聚合根} + {过去式动词}
+格式：{聚合根} + {过去式动词} + Event
 
 示例：
 ✅ 好的事件命名
-- MembershipActivated（会员已激活）
-- OrderPaid（订单已支付）
-- CouponExpired（点券已过期）
+- MembershipActivatedEvent（会员已激活）
+- OrderPaidEvent（订单已支付）
+- CouponExpiredEvent（点券已过期）
 
 ❌ 差的事件命名
-- ActivateMembership（命令，不是事件）
-- MembershipActivation（缺少动词）
-- 会员激活（中文，不符合代码规范）
+- ActivateMembershipEvent（命令，不是事件）
+- MembershipActivationEvent（缺少动词）
+- 会员激活Event（中文，不符合代码规范）
 ```
 
 **参考文档**：[references/methodology/domain-event.md](references/methodology/domain-event.md)
@@ -197,7 +197,7 @@ class Membership {
   activate(): void {
     this.status = MembershipStatus.ACTIVE
     // 发布事件
-    this.addEvent(new MembershipActivated({
+    this.addEvent(new MembershipActivatedEvent({
       eventId: uuid(),
       membershipId: this.id.value,
       userId: this.userId.value,
@@ -209,7 +209,7 @@ class Membership {
 
 // 订阅事件
 class CouponEventHandler {
-  onMembershipActivated(event: MembershipActivated): void {
+  onMembershipActivatedEvent(event: MembershipActivatedEvent): void {
     // 开始每日点券发放
     this.couponService.startDailyGrant(event.membershipId)
   }
@@ -253,7 +253,7 @@ class CouponEventHandler {
 | 维度 | 命令（Command） | 事件（Event） |
 |------|-----------------|---------------|
 | 时态 | 将来时（要做） | 过去时（已做） |
-| 命名 | ActivateMembership | MembershipActivated |
+| 命名 | ActivateMembership | MembershipActivatedEvent |
 | 来源 | 用户/系统发起 | 聚合发布 |
 | 数量 | 可能多个 | 唯一确定 |
 | 处理 | 可以失败 | 必须成功 |
@@ -263,9 +263,9 @@ class CouponEventHandler {
 
 | 特征 | 说明 | 示例 |
 |------|------|------|
-| **已经发生** | 表示过去的事实 | MembershipActivated（会员已激活） |
+| **已经发生** | 表示过去的事实 | MembershipActivatedEvent（会员已激活） |
 | **不可变** | 一旦发生不能改变 | 事件不能被修改 |
-| **业务相关** | 表达业务含义 | OrderPaid（订单已支付） |
+| **业务相关** | 表达业务含义 | OrderPaidEvent（订单已支付） |
 | **携带数据** | 包含必要业务数据 | 包含 orderId, userId, amount |
 | **有唯一标识** | 每个事件有唯一 ID | eventId |
 
@@ -296,7 +296,7 @@ class CouponEventHandler {
 
 ```typescript
 // ✅ 正确：只携带必要数据
-interface MembershipActivated {
+interface MembershipActivatedEvent {
   eventId: string
   membershipId: string
   userId: string
@@ -305,7 +305,7 @@ interface MembershipActivated {
 }
 
 // ❌ 错误：携带整个聚合
-interface MembershipActivated {
+interface MembershipActivatedEvent {
   eventId: string
   membership: Membership  // 不应该携带整个聚合
 }

@@ -79,13 +79,13 @@
 #### 2.2 应用服务命名规范
 
 ```
-格式：{聚合名} + ApplicationService
+格式：{聚合名} + Application
 
 示例：
 ✅ 好的服务命名
-- MembershipApplicationService
-- CouponApplicationService
-- PaymentApplicationService
+- MembershipApplication
+- CouponApplication
+- PaymentApplication
 
 ❌ 差的服务命名
 - MembershipService（与领域服务混淆）
@@ -110,9 +110,9 @@
 
 | 行为名称 | 应用服务 | 聚合根方法 | 权限要求 |
 |---------|---------|-----------|---------|
-| 创建订阅 | MembershipApplicationService | Membership.create() | 登录用户 |
-| 取消订阅 | MembershipApplicationService | Membership.cancel() | 会员本人 |
-| 查看会员信息 | MembershipApplicationService | MembershipRepository.findById() | 登录用户 |
+| 创建订阅 | MembershipApplication | Membership.create() | 登录用户 |
+| 取消订阅 | MembershipApplication | Membership.cancel() | 会员本人 |
+| 查看会员信息 | MembershipApplication | MembershipRepository.findById() | 登录用户 |
 
 ---
 
@@ -131,9 +131,9 @@
 
 | 行为名称 | 触发条件 | 应用服务 | 聚合根方法 |
 |---------|---------|---------|-----------|
-| 会员过期 | 定时任务（每日凌晨） | MembershipApplicationService | Membership.expire() |
-| 点券发放 | 会员激活事件 | CouponApplicationService | Coupon.grant() |
-| 自动续费 | 订阅到期前1天 | MembershipApplicationService | Membership.renew() |
+| 会员过期 | 定时任务（每日凌晨） | MembershipApplication | Membership.expire() |
+| 点券发放 | 会员激活事件 | CouponApplication | Coupon.grant() |
+| 自动续费 | 订阅到期前1天 | MembershipApplication | Membership.renew() |
 
 ---
 
@@ -332,7 +332,7 @@ async {方法名}(cmd: {Command类型}): Promise<{Result类型}>
 
 ```typescript
 // ✅ 正确：应用服务只负责编排
-class MembershipApplicationService {
+class MembershipApplication {
   async createMembership(cmd: CreateMembershipCommand): Promise<Membership> {
     // 参数校验（应用层职责）
     this.validate(cmd)
@@ -351,7 +351,7 @@ class MembershipApplicationService {
 }
 
 // ❌ 错误：应用服务包含业务逻辑
-class MembershipApplicationService {
+class MembershipApplication {
   async createMembership(cmd: CreateMembershipCommand): Promise<Membership> {
     // 业务逻辑应该在领域层
     if (cmd.amount <= 0) {
@@ -376,7 +376,7 @@ class MembershipApplicationService {
 
 ```typescript
 // ✅ 正确：优先调用聚合根
-class MembershipApplicationService {
+class MembershipApplication {
   async cancelMembership(cmd: CancelMembershipCommand): Promise<void> {
     const membership = await this.repo.findById(cmd.membershipId)
     membership.cancel()  // 调用聚合根行为
@@ -385,7 +385,7 @@ class MembershipApplicationService {
 }
 
 // ✅ 正确：需要时调用领域服务
-class MembershipApplicationService {
+class MembershipApplication {
   async calculateTotalValue(cmd: CalculateValueCommand): Promise<Money> {
     const membership = await this.repo.findById(cmd.membershipId)
     // 调用领域服务（跨聚合或复杂计算）

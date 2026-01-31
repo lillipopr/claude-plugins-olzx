@@ -14,7 +14,7 @@ description: 资深领域架构师，负责将 PRD 文档转化为完整的《�
 3. **第三章：领域服务设计** - 领域服务判断、服务列表、服务详细设计
 4. **第四章：应用层设计** - 应用服务列表、用户行为列表、系统行为列表
 5. **第五章：领域事件** - 事件列表、事件详细设计
-6. **第六章：入口层设计** - Controller 层、MQ 层、Task 层
+6. **第六章：入口层设计** - Controller 层、MQ 层、Task 层（Starter 层）
 
 ---
 
@@ -59,39 +59,22 @@ description: 资深领域架构师，负责将 PRD 文档转化为完整的《�
 | 第三章 | [chapters/chapter-03-domain-service.md](chapters/chapter-03-domain-service.md) | 领域服务设计 |
 | 第四章 | [chapters/chapter-04-application.md](chapters/chapter-04-application.md) | 应用层设计 |
 | 第五章 | [chapters/chapter-05-domain-event.md](chapters/chapter-05-domain-event.md) | 领域事件 |
-| 第六章 | [chapters/chapter-06-gateway.md](chapters/chapter-06-gateway.md) | 入口层设计 |
+| 第六章 | [chapters/chapter-06-starter.md](chapters/chapter-06-starter.md) | 入口层设计（Starter 层） |
 
 ---
 
 ## 参考资料
 
-### 方法论文档（设计时参考）
+### 设计原则（按章节分类）
 
-| 文件 | 说明 |
-|------|------|
-| [references/methodology/business-capability.md](references/methodology/business-capability.md) | 业务能力分析 |
-| [references/methodology/aggregate-design.md](references/methodology/aggregate-design.md) | 聚合设计方法论 |
-| [references/methodology/context-mapping.md](references/methodology/context-mapping.md) | 上下文映射方法论 |
-| [references/methodology/domain-event.md](references/methodology/domain-event.md) | 领域事件设计方法论 |
-| [references/methodology/entity-extraction.md](references/methodology/entity-extraction.md) | 实体抽取方法论 |
-| [references/methodology/vo-design.md](references/methodology/vo-design.md) | 值对象设计方法论 |
-| [references/methodology/bounded-context.md](references/methodology/bounded-context.md) | 限界上下文方法论 |
-
-### 设计模式（设计时参考）
-
-| 文件 | 说明 |
-|------|------|
-| [references/patterns/ddd-patterns.md](references/patterns/ddd-patterns.md) | DDD 战略设计模式 |
-| [references/patterns/tactical-patterns.md](references/patterns/tactical-patterns.md) | DDD 战术设计模式 |
-
-### 设计原则（设计时参考）
-
-| 文件 | 说明 |
-|------|------|
-| [references/principles/ddd-principles.md](references/principles/ddd-principles.md) | DDD 核心原则 |
-| [references/principles/aggregate-principles.md](references/principles/aggregate-principles.md) | 聚合设计原则 |
-| [references/principles/invariant-principles.md](references/principles/invariant-principles.md) | 不变量原则 |
-| [references/principles/modeling-principles.md](references/principles/modeling-principles.md) | 领域建模原则 |
+| 章节 | 原则文件 | 说明 |
+|------|---------|------|
+| 第一章 | [references/principles/bounded-context.md](references/principles/bounded-context.md) | 限界上下文相关原则 |
+| 第二章 | [references/principles/aggregate.md](references/principles/aggregate.md) | 聚合相关原则 |
+| 第三章 | [references/principles/domain-service.md](references/principles/domain-service.md) | 领域服务相关原则 |
+| 第四章 | [references/principles/application.md](references/principles/application.md) | 应用层相关原则 |
+| 第五章 | [references/principles/domain-event.md](references/principles/domain-event.md) | 领域事件相关原则 |
+| 第六章 | [references/principles/starter.md](references/principles/starter.md) | 入口层（Starter 层）相关原则 |
 
 ### 检查清单（每章完成后自检）
 

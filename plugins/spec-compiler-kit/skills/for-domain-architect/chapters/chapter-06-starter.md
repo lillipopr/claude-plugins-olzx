@@ -1,8 +1,8 @@
-# 第六章：入口层设计
+# 第六章：入口层设计（Starter 层）
 
 ## 章节目标
 
-完成入口层设计，包括：
+完成入口层（Starter 层）设计，包括：
 1. **Controller 层**：定义 HTTP 接口入口
 2. **MQ 层**：定义消息队列消费者
 3. **Task 层**：定义定时任务
@@ -80,7 +80,58 @@
 
 **接口设计原则**：
 - **只允许 POST 接口**：所有接口都是 POST，其他方法（GET、PUT、DELETE）不使用
-- **路径清晰**：路径描述操作，如 `/create`, `/cancel`, `/query`
+- **统一路径格式**：使用 `/api/版本/端/聚合名/动作` 格式
+
+**接口路径格式**：
+
+```
+/api/{版本}/{端}/{聚合名}/{动作}
+```
+
+**路径组成部分**：
+
+| 组成部分 | 说明 | 取值 |
+|---------|------|------|
+| **api** | 固定前缀 | `api` |
+| **版本** | 接口版本 | `v1`, `v2`, `v3` ... |
+| **端** | 调用端标识 | `m`（mobile 移动端）, `c`（client 客户端）, `w`（web 网页端）, `a`（admin 管理端） |
+| **聚合名** | 聚合根名称 | `wallet`, `user`, `membership`, `order` ... |
+| **动作** | 操作动作 | `freeze`, `login`, `create`, `cancel` ... |
+
+**端标识定义**：
+
+| 端标识 | 名称 | 说明 |
+|-------|------|------|
+| **m** | Mobile | 移动端（iOS/Android App） |
+| **c** | Client | 客户端（通用） |
+| **w** | Web | 网页端（浏览器） |
+| **a** | Admin | 管理端（后台） |
+
+**路径示例**：
+
+```
+✅ 好的路径设计
+POST /api/v1/m/wallet/freeze        // 移动端：冻结钱包
+POST /api/v1/c/user/login           // 客户端：用户登录
+POST /api/v1/m/membership/create    // 移动端：创建会员
+POST /api/v1/a/order/cancel         // 管理端：取消订单
+POST /api/v2/w/payment/query        // 网页端：查询支付（v2 版本）
+
+❌ 差的路径设计
+GET /api/wallet/freeze              // 不使用 GET
+POST /api/wallet/freeze             // 缺少版本号
+POST /api/v1/wallet/freeze          // 缺少端标识
+POST /wallet/freeze                 // 缺少前缀
+POST /api/v1/m/freezeWallet         // 动作使用驼峰，应使用小写
+```
+
+**路径命名规范**：
+
+| 规范 | 说明 | 示例 |
+|------|------|------|
+| **全小写** | 所有路径使用小写 | `wallet`, `freeze`, `login` |
+| **连字符分隔** | 多词使用连字符 | `daily-grant`, `expire-check` |
+| **动词结尾** | 动作使用动词 | `create`, `cancel`, `freeze`, `login` |
 
 ---
 
@@ -107,10 +158,78 @@
 
 **请求参数（Request Body）**：
 
+**参数命名格式**：
+
+```
+格式：{动作} + {聚合名} + Param
+
+示例：
+✅ 好的参数命名
+- CreateMembershipParam（创建会员）
+- FreezeWalletParam（冻结钱包）
+- CancelOrderParam（取消订单）
+- LoginUserParam（用户登录）
+
+❌ 差的参数命名
+- CreateMembershipRequest（不是 Request，是 Param）
+- MembershipDTO（DTO 是响应对象，不是请求参数）
+- CreateMembershipReq（缩写不规范）
+```
+
+**禁止使用原始数据类型**：
+
+**原则**：所有接口参数必须是对象类型，不能使用原始数据类型（string, number, boolean 等）。
+
+```typescript
+// ✅ 正确：使用 Param 对象
+@Post("/api/v1/m/wallet/freeze")
+async freezeWallet(@Body() param: FreezeWalletParam): Promise<ApiResponse<void>> {
+  // param 是对象类型
+}
+
+interface FreezeWalletParam {
+  walletId: string
+  reason: string
+}
+
+// ❌ 错误：使用原始数据类型
+@Post("/api/v1/m/wallet/freeze")
+async freezeWallet(@Body() walletId: string): Promise<ApiResponse<void>> {
+  // 不应该直接使用 string
+}
+
+// ❌ 错误：使用多个原始类型参数
+@Post("/api/v1/m/user/login")
+async login(
+  @Body() username: string,
+  @Body() password: string
+): Promise<ApiResponse<LoginDTO>> {
+  // 不应该使用多个原始类型参数
+}
+
+// ✅ 正确：包装成 Param 对象
+@Post("/api/v1/m/user/login")
+async login(@Body() param: LoginUserParam): Promise<ApiResponse<LoginDTO>> {
+  // param 是对象类型
+}
+
+interface LoginUserParam {
+  username: string
+  password: string
+}
+```
+
+**参数字段定义**：
+
 | 字段名 | 类型 | 必填 | 约束 | 说明 |
 |-------|------|------|------|------|
 | {字段1} | {类型} | 是 | {约束规则} | {字段说明} |
 | {字段2} | {类型} | 否 | {约束规则} | {字段说明} |
+
+**参数对象设计原则**：
+- **只包含输入字段**：Param 只包含用户输入的字段
+- **不包含业务规则**：业务规则字段（如 status、isActive）应该在领域层
+- **不包含计算字段**：计算得出的字段不应该在 Param 中
 
 **请求示例**：
 
@@ -394,6 +513,10 @@ flowchart TD
 | Authorization | string | 是 | Bearer {token} |
 
 **请求参数（Request Body）**：
+
+**参数命名格式**：`{动作} + {聚合名} + Param`
+
+**禁止使用原始数据类型**：所有接口参数必须是对象类型，不能使用原始数据类型（string, number, boolean 等）。
 
 | 字段名 | 类型 | 必填 | 约束 | 说明 |
 |-------|------|------|------|------|

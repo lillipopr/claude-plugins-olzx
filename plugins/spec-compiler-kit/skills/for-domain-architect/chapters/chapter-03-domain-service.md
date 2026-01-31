@@ -79,17 +79,17 @@
 #### 2.2 服务命名规范
 
 ```
-格式：{动词} + {名词}
+格式：{聚合名} + Domain
 
 示例：
 ✅ 好的服务命名
-- CalculateDiscount（计算折扣）
-- TransferPoints（转移积分）
-- ConvertCurrency（货币转换）
+- MembershipDomain
+- CouponDomain
+- PaymentDomain
 
 ❌ 差的服务命名
-- Discount（缺少动词）
-- Calculate（缺少对象）
+- MembershipService（与 Application 层混淆）
+- Discount（缺少聚合名）
 - 点券服务（中文，不符合代码规范）
 ```
 
