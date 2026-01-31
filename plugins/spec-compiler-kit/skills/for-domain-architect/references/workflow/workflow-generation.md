@@ -173,7 +173,7 @@
 - [ ] 上下文映射是否清晰？
 - [ ] 防腐层是否必要？
 
-**评分标准**：使用 `scoring/01-strategic-scoring.md`
+**评分标准**：使用 `scoring/chapter-01-scoring.md`
 
 ### 第二章：聚合设计
 
@@ -198,7 +198,7 @@
 - [ ] 行为设计是否完整？
 - [ ] 约束定义是否清晰？
 
-**评分标准**：使用 `scoring/02-tactical-scoring.md`
+**评分标准**：使用 `scoring/chapter-02-scoring.md`
 
 ### 第三章：领域服务设计
 
@@ -220,7 +220,7 @@
 - [ ] 服务职责是否清晰？
 - [ ] 约束定义是否完整？
 
-**评分标准**：使用 `scoring/02-tactical-scoring.md`
+**评分标准**：使用 `scoring/chapter-03-scoring.md`
 
 ### 第四章：应用层设计
 
@@ -243,7 +243,7 @@
 - [ ] 用例设计是否完整？
 - [ ] 约束定义是否清晰？
 
-**评分标准**：使用 `scoring/04-use-case-scoring.md`
+**评分标准**：使用 `scoring/chapter-04-scoring.md`
 
 ### 第五章：领域事件
 
@@ -264,7 +264,7 @@
 - [ ] 携带数据是否必要？
 - [ ] 订阅方是否完整？
 
-**评分标准**：使用 `scoring/02-tactical-scoring.md`
+**评分标准**：使用 `scoring/chapter-05-scoring.md`
 
 ### 第六章：入口层设计
 
@@ -290,7 +290,7 @@
 - [ ] 消费者幂等性是否保证？
 - [ ] 定时任务是否有分布式锁？
 
-**评分标准**：使用 `scoring/04-use-case-scoring.md`
+**评分标准**：使用 `scoring/chapter-06-scoring.md`
 
 ---
 
@@ -435,7 +435,10 @@ Markdown 格式的领域设计文档
 - [入口层原则](../principles/starter.md)
 
 ### 评分标准
-- [战略设计评分](../scoring/01-strategic-scoring.md)
-- [战术设计评分](../scoring/02-tactical-scoring.md)
-- [约束评分](../scoring/03-constraint-scoring.md)
-- [用例评分](../scoring/04-use-case-scoring.md)
+- [第一章评分标准](../scoring/chapter-01-scoring.md)
+- [第二章评分标准](../scoring/chapter-02-scoring.md)
+- [第三章评分标准](../scoring/chapter-03-scoring.md)
+- [第四章评分标准](../scoring/chapter-04-scoring.md)
+- [第五章评分标准](../scoring/chapter-05-scoring.md)
+- [第六章评分标准](../scoring/chapter-06-scoring.md)
+- [设计一致性评分标准](../scoring/design-consistency-scoring.md)

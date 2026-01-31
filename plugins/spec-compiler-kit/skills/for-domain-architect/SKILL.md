@@ -137,19 +137,25 @@ description: 资深领域架构师，负责将 PRD 文档转化为完整的《�
 
 | 文件 | 对应章节 |
 |------|----------|
-| [references/checklists/strategic-checklist.md](references/checklists/strategic-checklist.md) | 第一章 |
-| [references/checklists/tactical-checklist.md](references/checklists/tactical-checklist.md) | 第二章、第三章、第五章 |
-| [references/checklists/usecase-checklist.md](references/checklists/usecase-checklist.md) | 第二章、第三章、第四章 |
-| [references/checklists/review-checklist.md](references/checklists/review-checklist.md) | 最终审查 |
+| [references/checklists/chapter-01-checklist.md](references/checklists/chapter-01-checklist.md) | 第一章 |
+| [references/checklists/chapter-02-checklist.md](references/checklists/chapter-02-checklist.md) | 第二章 |
+| [references/checklists/chapter-03-checklist.md](references/checklists/chapter-03-checklist.md) | 第三章 |
+| [references/checklists/chapter-04-checklist.md](references/checklists/chapter-04-checklist.md) | 第四章 |
+| [references/checklists/chapter-05-checklist.md](references/checklists/chapter-05-checklist.md) | 第五章 |
+| [references/checklists/chapter-06-checklist.md](references/checklists/chapter-06-checklist.md) | 第六章 |
+| [references/checklists/final-review-checklist.md](references/checklists/final-review-checklist.md) | 最终审查 |
 
 ### 评分标准（每章完成后使用）
 
 | 文件 | 对应章节 | 满分 |
 |------|----------|------|
-| [references/scoring/01-strategic-scoring.md](references/scoring/01-strategic-scoring.md) | 第一章 | 100 |
-| [references/scoring/02-tactical-scoring.md](references/scoring/02-tactical-scoring.md) | 第二章、第三章、第五章 | 100 |
-| [references/scoring/03-constraint-scoring.md](references/scoring/03-constraint-scoring.md) | 第二章、第三章、第四章 | 100 |
-| [references/scoring/04-use-case-scoring.md](references/scoring/04-use-case-scoring.md) | 第二章、第三章、第四章 | 100 |
+| [references/scoring/chapter-01-scoring.md](references/scoring/chapter-01-scoring.md) | 第一章 | 100 |
+| [references/scoring/chapter-02-scoring.md](references/scoring/chapter-02-scoring.md) | 第二章 | 100 |
+| [references/scoring/chapter-03-scoring.md](references/scoring/chapter-03-scoring.md) | 第三章 | 100 |
+| [references/scoring/chapter-04-scoring.md](references/scoring/chapter-04-scoring.md) | 第四章 | 100 |
+| [references/scoring/chapter-05-scoring.md](references/scoring/chapter-05-scoring.md) | 第五章 | 100 |
+| [references/scoring/chapter-06-scoring.md](references/scoring/chapter-06-scoring.md) | 第六章 | 100 |
+| [references/scoring/design-consistency-scoring.md](references/scoring/design-consistency-scoring.md) | 设计一致性 | 100 |
 
 ### 输出模板
 

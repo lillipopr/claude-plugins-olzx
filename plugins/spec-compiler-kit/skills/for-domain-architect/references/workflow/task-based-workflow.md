@@ -121,8 +121,8 @@ output:
   contentFile: "output/chapter-01.md"
   summaryFile: "output/chapter-01-summary.md"
 qualityGate:
-  checklistFile: "references/checklists/strategic-checklist.md"
-  scoringFile: "references/scoring/01-strategic-scoring.md"
+  checklistFile: "references/checklists/chapter-01-checklist.md"
+  scoringFile: "references/scoring/chapter-01-scoring.md"
   passScore: 60
 ```
 
@@ -172,7 +172,7 @@ input:
 output:
   finalFile: "output/{功能名称}-领域设计文档.md"
 qualityGate:
-  checklistFile: "references/checklists/review-checklist.md"
+  checklistFile: "references/checklists/final-review-checklist.md"
   passScore: null
 ```
 

@@ -52,12 +52,12 @@
 
 | 章节 | 评分标准文件 | 满分 | 及格线 | 权重 |
 |------|-------------|------|--------|------|
-| 第一章 | scoring/01-strategic-scoring.md | 100 | 60 | 15% |
-| 第二章 | scoring/02-tactical-scoring.md | 100 | 60 | 25% |
-| 第三章 | scoring/02-tactical-scoring.md | 100 | 60 | 10% |
-| 第四章 | scoring/04-use-case-scoring.md | 100 | 60 | 15% |
-| 第五章 | scoring/02-tactical-scoring.md | 100 | 60 | 10% |
-| 第六章 | scoring/04-use-case-scoring.md | 100 | 60 | 10% |
+| 第一章 | scoring/chapter-01-scoring.md | 100 | 60 | 15% |
+| 第二章 | scoring/chapter-02-scoring.md | 100 | 60 | 25% |
+| 第三章 | scoring/chapter-03-scoring.md | 100 | 60 | 10% |
+| 第四章 | scoring/chapter-04-scoring.md | 100 | 60 | 15% |
+| 第五章 | scoring/chapter-05-scoring.md | 100 | 60 | 10% |
+| 第六章 | scoring/chapter-06-scoring.md | 100 | 60 | 10% |
 
 ### 第一章：限界上下文设计评分
 
@@ -474,12 +474,12 @@ const namingRules = {
 ## 支持文档
 
 相关评分标准：
-- [第一章评分标准](scoring/01-strategic-scoring.md)
-- [第二章评分标准](scoring/02-tactical-scoring.md)
-- [第三章评分标准](scoring/02-tactical-scoring.md)
-- [第四章评分标准](scoring/04-use-case-scoring.md)
-- [第五章评分标准](scoring/02-tactical-scoring.md)
-- [第六章评分标准](scoring/04-use-case-scoring.md)
+- [第一章评分标准](scoring/chapter-01-scoring.md)
+- [第二章评分标准](scoring/chapter-02-scoring.md)
+- [第三章评分标准](scoring/chapter-03-scoring.md)
+- [第四章评分标准](scoring/chapter-04-scoring.md)
+- [第五章评分标准](scoring/chapter-05-scoring.md)
+- [第六章评分标准](scoring/chapter-06-scoring.md)
 ```
 
 ---
@@ -487,14 +487,19 @@ const namingRules = {
 ## 支持文档
 
 ### 评分标准
-- [战略设计评分](../scoring/01-strategic-scoring.md)
-- [战术设计评分](../scoring/02-tactical-scoring.md)
-- [约束评分](../scoring/03-constraint-scoring.md)
-- [用例评分](../scoring/04-use-case-scoring.md)
+- [第一章评分标准](../scoring/chapter-01-scoring.md)
+- [第二章评分标准](../scoring/chapter-02-scoring.md)
+- [第三章评分标准](../scoring/chapter-03-scoring.md)
+- [第四章评分标准](../scoring/chapter-04-scoring.md)
+- [第五章评分标准](../scoring/chapter-05-scoring.md)
+- [第六章评分标准](../scoring/chapter-06-scoring.md)
+- [设计一致性评分标准](../scoring/design-consistency-scoring.md)
 
 ### 检查清单
-- [战略设计检查清单](../checklists/strategic-checklist.md)
-- [战术设计检查清单](../checklists/tactical-checklist.md)
-- [约束检查清单](../checklists/constraint-checklist.md)
-- [用例检查清单](../checklists/usecase-checklist.md)
-- [最终审查清单](../checklists/review-checklist.md)
+- [第一章检查清单](../checklists/chapter-01-checklist.md)
+- [第二章检查清单](../checklists/chapter-02-checklist.md)
+- [第三章检查清单](../checklists/chapter-03-checklist.md)
+- [第四章检查清单](../checklists/chapter-04-checklist.md)
+- [第五章检查清单](../checklists/chapter-05-checklist.md)
+- [第六章检查清单](../checklists/chapter-06-checklist.md)
+- [最终审查清单](../checklists/final-review-checklist.md)

@@ -269,19 +269,25 @@
 
 | 文件 | 对应章节 | 满分 |
 |------|----------|------|
-| [scoring/01-strategic-scoring.md](../scoring/01-strategic-scoring.md) | 第一章 | 100 |
-| [scoring/02-tactical-scoring.md](../scoring/02-tactical-scoring.md) | 第二、三、五章 | 100 |
-| [scoring/03-constraint-scoring.md](../scoring/03-constraint-scoring.md) | 第二、三、四章 | 100 |
-| [scoring/04-use-case-scoring.md](../scoring/04-use-case-scoring.md) | 第二、三、四章 | 100 |
+| [scoring/chapter-01-scoring.md](../scoring/chapter-01-scoring.md) | 第一章 | 100 |
+| [scoring/chapter-02-scoring.md](../scoring/chapter-02-scoring.md) | 第二章 | 100 |
+| [scoring/chapter-03-scoring.md](../scoring/chapter-03-scoring.md) | 第三章 | 100 |
+| [scoring/chapter-04-scoring.md](../scoring/chapter-04-scoring.md) | 第四章 | 100 |
+| [scoring/chapter-05-scoring.md](../scoring/chapter-05-scoring.md) | 第五章 | 100 |
+| [scoring/chapter-06-scoring.md](../scoring/chapter-06-scoring.md) | 第六章 | 100 |
+| [scoring/design-consistency-scoring.md](../scoring/design-consistency-scoring.md) | 设计一致性 | 100 |
 
 ### 检查清单
 
 | 文件 | 对应章节 |
 |------|----------|
-| [checklists/strategic-checklist.md](../checklists/strategic-checklist.md) | 第一章 |
-| [checklists/tactical-checklist.md](../checklists/tactical-checklist.md) | 第二、三、五章 |
-| [checklists/usecase-checklist.md](../checklists/usecase-checklist.md) | 第二、三、四章 |
-| [checklists/review-checklist.md](../checklists/review-checklist.md) | 最终审查 |
+| [checklists/chapter-01-checklist.md](../checklists/chapter-01-checklist.md) | 第一章 |
+| [checklists/chapter-02-checklist.md](../checklists/chapter-02-checklist.md) | 第二章 |
+| [checklists/chapter-03-checklist.md](../checklists/chapter-03-checklist.md) | 第三章 |
+| [checklists/chapter-04-checklist.md](../checklists/chapter-04-checklist.md) | 第四章 |
+| [checklists/chapter-05-checklist.md](../checklists/chapter-05-checklist.md) | 第五章 |
+| [checklists/chapter-06-checklist.md](../checklists/chapter-06-checklist.md) | 第六章 |
+| [checklists/final-review-checklist.md](../checklists/final-review-checklist.md) | 最终审查 |
 
 ---
 
