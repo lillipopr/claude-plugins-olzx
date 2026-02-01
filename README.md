@@ -133,7 +133,7 @@ spec-compiler/
 
 ```bash
 # 添加 Marketplace
-/plugin marketplace add https://github.com/lillipopr/lollipopr-claude
+/plugin marketplace add https://github.com/lillipopr/claude-plugins-olzx
 
 # 安装插件
 /plugin install spec-compiler

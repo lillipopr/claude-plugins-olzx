@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "lollipopr-claude-marketplace",
+  "name": "claude-plugins-olzx",
   "description": "LollipopR Claude Marketplace",
   "owner": {
     "name": "zxq",
@@ -16,7 +16,7 @@
       },
       "source": "./plugins/spec-compiler",
       "category": "workflow",
-      "homepage": "https://github.com/lillipopr/lollipopr-claude"
+      "homepage": "https://github.com/lillipopr/claude-plugins-olzx"
     }
   ]
 }
