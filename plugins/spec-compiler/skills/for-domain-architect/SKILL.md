@@ -133,7 +133,7 @@ T12: 文档组装（依赖 T11）
 | 文件 | 说明 | 优先级 |
 |------|------|--------|
 | [references/workflow/README.md](references/workflow/README.md) | **工作流索引**：快速导航和常见问题 | ⭐⭐⭐ |
-| [references/workflow/context-optimization.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/workflow/context-optimization.md) | **上下文优化**：避免上下文撑爆 | ⭐⭐⭐ |
+| [references/workflow/context-optimization.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/workflow/context-optimization.md) | **上下文优化**：避免上下文撑爆 | ⭐⭐⭐ |
 | [references/workflow/roadmap-workflow.md](references/workflow/roadmap-workflow.md) | **Roadmap 工作流**：Roadmap 生成和进度展示 | ⭐⭐⭐ |
 | [references/workflow/pdca-chapter-generation.md](references/workflow/pdca-chapter-generation.md) | **PDCA 章节生成**：Checklists 驱动的 PDCA 循环 | ⭐⭐⭐ |
 | [references/workflow/task-management.md](references/workflow/task-management.md) | **Task 管理规范**：Task 定义和执行规范 | ⭐⭐⭐ |
@@ -142,28 +142,28 @@ T12: 文档组装（依赖 T11）
 
 | 章节 | 原则文件 | 说明 |
 |------|---------|------|
-| 第一章 | [references/principles/bounded-context.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/principles/bounded-context.md) | 限界上下文相关原则 |
-| 第二章 | [references/principles/aggregate.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/principles/aggregate.md) | 聚合相关原则（包含事件发布） |
-| 第三章 | [references/principles/domain-service.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/principles/domain-service.md) | 领域服务相关原则 |
-| 第四章 | [references/principles/application.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/principles/application.md) | 应用层相关原则（包含事件处理） |
-| 第五章 | [references/principles/starter.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/principles/starter.md) | 入口层（Starter 层）相关原则 |
+| 第一章 | [references/principles/bounded-context.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/principles/bounded-context.md) | 限界上下文相关原则 |
+| 第二章 | [references/principles/aggregate.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/principles/aggregate.md) | 聚合相关原则（包含事件发布） |
+| 第三章 | [references/principles/domain-service.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/principles/domain-service.md) | 领域服务相关原则 |
+| 第四章 | [references/principles/application.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/principles/application.md) | 应用层相关原则（包含事件处理） |
+| 第五章 | [references/principles/starter.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/principles/starter.md) | 入口层（Starter 层）相关原则 |
 
 ### 检查清单（每章完成后自检）
 
 | 文件 | 对应章节 |
 |------|----------|
-| [references/checklists/chapter-01-checklist.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/checklists/chapter-01-checklist.md) | 第一章 |
-| [references/checklists/chapter-02-checklist.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/checklists/chapter-02-checklist.md) | 第二章 |
-| [references/checklists/chapter-03-checklist.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/checklists/chapter-03-checklist.md) | 第三章 |
-| [references/checklists/chapter-04-checklist.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/checklists/chapter-04-checklist.md) | 第四章 |
-| [references/checklists/chapter-05-checklist.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/checklists/chapter-05-checklist.md) | 第五章 |
-| [references/checklists/final-review-checklist.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/checklists/final-review-checklist.md) | 最终审查 |
+| [references/checklists/chapter-01-checklist.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/checklists/chapter-01-checklist.md) | 第一章 |
+| [references/checklists/chapter-02-checklist.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/checklists/chapter-02-checklist.md) | 第二章 |
+| [references/checklists/chapter-03-checklist.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/checklists/chapter-03-checklist.md) | 第三章 |
+| [references/checklists/chapter-04-checklist.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/checklists/chapter-04-checklist.md) | 第四章 |
+| [references/checklists/chapter-05-checklist.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/checklists/chapter-05-checklist.md) | 第五章 |
+| [references/checklists/final-review-checklist.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/checklists/final-review-checklist.md) | 最终审查 |
 
 ### 输出模板
 
 | 文件 | 说明 |
 |------|------|
-| [assets/templates/domain-design-template.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/assets/templates/domain-design-template.md) | **领域设计文档模板**（最终产出） |
+| [assets/templates/domain-design-template.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/assets/templates/domain-design-template.md) | **领域设计文档模板**（最终产出） |
 
 ---
 
@@ -233,7 +233,7 @@ T12: 文档组装（依赖 T11）
 3. **文件持久化**：所有内容写入文件，不占用内存
 4. **摘要传递**：章节间只传递摘要
 
-详见：[references/workflow/context-optimization.md](../../../../claude-plugins-olzx/plugins/spec-compiler/skills/for-domain-architect/references/workflow/context-optimization.md)
+详见：[references/workflow/context-optimization.md]({CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/references/workflow/context-optimization.md)
 
 ### Q3：如何确保质量？
 
