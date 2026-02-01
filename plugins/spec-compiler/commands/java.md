@@ -156,13 +156,13 @@ description: 调用 Java 后端专家，实现后端代码/Review/Bugfix。遵�
 ## 相关 Agent
 
 此命令调用位于以下位置的 `java-expert` Agent：
-`./agents/java-expert.md`
+`{CLAUDE_PLUGIN_ROOT}/agents/java-expert.md`
 
 并可引用位于以下位置的 `for-java-expert` Skill：
-`./skills/for-java-expert/SKILL.md`
+`{CLAUDE_PLUGIN_ROOT}/skills/for-java-expert/SKILL.md`
 
 以及位于以下位置的 Java DDD 分层规范：
-`./rules/architecture/java-ddd-layers.md`
+`{CLAUDE_PLUGIN_ROOT}/rules/architecture/java-ddd-layers.md`
 
 ## 示例
 

@@ -1,6 +1,14 @@
 ---
 name: for-java-expert
 description: Java 资深技术专家知识库，提供 DDD 架构、SOLID 原则、JVM 调优、并发编程、分布式系统等核心知识。
+
+当用户询问以下问题时触发：
+- "Java 架构设计"
+- "DDD 领域建模"
+- "JVM 性能调优"
+- "并发编程"
+- "分布式系统"
+- "Java 代码审查"
 ---
 
 # Java 技术专家 Skill
@@ -55,7 +63,7 @@ description: Java 资深技术专家知识库，提供 DDD 架构、SOLID 原则
 - **代码审查**: 见 [开发工作流](sop/development-workflow.md)
 
 ### 相关 Agent
-- `agents/java-expert/AGENT.md`
+- [{CLAUDE_PLUGIN_ROOT}/agents/java-expert.md]({CLAUDE_PLUGIN_ROOT}/agents/java-expert.md) - Java 技术专家 Agent
 
 ## 快速参考
 

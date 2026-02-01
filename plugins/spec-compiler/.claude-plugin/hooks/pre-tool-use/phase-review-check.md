@@ -83,5 +83,5 @@ def check_phase_review(document_path, edit_phase):
 
 ## 相关文档
 
-- [规格编译器 Phase 规范](../../skills/for-spec-compiler-v4/references/sop/phase-workflow.md)
-- [审查检查清单](../../skills/for-spec-compiler-v4/references/checklists/review-checklist.md)
+- [规格编译器 Phase 规范]({CLAUDE_PLUGIN_ROOT}/skills/for-spec-compiler-v4/references/sop/phase-workflow.md)
+- [审查检查清单]({CLAUDE_PLUGIN_ROOT}/skills/for-spec-compiler-v4/references/checklists/review-checklist.md)

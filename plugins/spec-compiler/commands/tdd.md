@@ -122,10 +122,10 @@ RED（写测试）→ GREEN（实现）→ REFACTOR（重构）
 ## 相关 Agent
 
 此命令调用位于以下位置的 `tdd-expert` Agent：
-`./agents/tdd-expert.md`
+`{CLAUDE_PLUGIN_ROOT}/agents/tdd-expert.md`
 
 并可引用位于以下位置的 `for-tdd-expert` Skill：
-`./skills/for-tdd-expert/SKILL.md`
+`{CLAUDE_PLUGIN_ROOT}/skills/for-tdd-expert/SKILL.md`
 
 ## 示例
 

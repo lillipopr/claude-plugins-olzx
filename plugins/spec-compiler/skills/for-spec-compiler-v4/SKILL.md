@@ -1,6 +1,14 @@
 ---
 name: for-spec-compiler-v4
 description: 规格编译器 4.0 完整知识库，提供从领域设计文档到规格编译文档的完整方法论、SOP、模板和平台指南。
+
+当用户询问以下问题时触发：
+- "规格文档"
+- "规格建模"
+- "用例设计"
+- "接口设计"
+- "状态机设计"
+- "规格编译"
 ---
 
 # 规格编译器 4.0 Skill（Spec Compiler 4.0）
@@ -174,5 +182,5 @@ Phase 4: 端到端设计 → 产出《端到端接口设计文档》（串联各
 | **深入实践** | [platforms/](platforms/) 或 [scenarios/](scenarios/) |
 
 ## 相关 Agent
-- [`agents/spec-compiler-v4/AGENT.md`](../../../agents/spec-compiler-v4/AGENT.md) - 规格编译器 Agent
-- [`agents/domain-architect/AGENT.md`](../../../agents/domain-architect/AGENT.md) - 领域架构师 Agent（上游）
+- [{CLAUDE_PLUGIN_ROOT}/agents/spec-compiler-v4.md]({CLAUDE_PLUGIN_ROOT}/agents/spec-compiler-v4.md) - 规格编译器 Agent
+- [{CLAUDE_PLUGIN_ROOT}/agents/domain-architect.md]({CLAUDE_PLUGIN_ROOT}/agents/domain-architect.md) - 领域架构师 Agent（上游）

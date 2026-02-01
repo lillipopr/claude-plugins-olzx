@@ -1,6 +1,14 @@
 ---
 name: for-ios-expert
 description: iOS 技术专家知识库，提供 MVVM 分层架构、SwiftUI 开发、并发编程、性能优化等核心技术。
+
+当用户询问以下问题时触发：
+- "iOS 架构设计"
+- "SwiftUI 开发"
+- "Swift 并发编程"
+- "iOS 性能优化"
+- "MVVM 架构"
+- "iOS 代码审查"
 ---
 
 # iOS 技术专家 Skill
@@ -97,4 +105,4 @@ View → ViewModel → Service → Gateway
 
 ## 相关 Agent
 
-- `agents/ios-expert/AGENT.md` - iOS 技术专家 Agent
+- [{CLAUDE_PLUGIN_ROOT}/agents/ios-expert.md]({CLAUDE_PLUGIN_ROOT}/agents/ios-expert.md) - iOS 技术专家 Agent

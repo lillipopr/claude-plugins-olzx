@@ -184,13 +184,15 @@ function main() {
           process.exit(1);
         }
       } catch (error) {
-        // 解析错误，透传数据避免阻塞
-        console.error(JSON.stringify(inputData || {}));
+        // 解析错误：记录日志但仍透传（避免阻塞正常操作）
+        console.error(`[phase-review-check] Parse error: ${error.message}`);
+        console.log(JSON.stringify(inputData || '{}'));
         process.exit(0);
       }
     });
   } catch (error) {
-    // 未预期的错误，透传数据避免阻塞
+    // 未预期的错误：记录日志但仍透传（避免阻塞正常操作）
+    console.error(`[phase-review-check] Unexpected error: ${error.message}`);
     console.error(JSON.stringify(inputData || '{}'));
     process.exit(0);
   }

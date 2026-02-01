@@ -80,10 +80,10 @@ description: 调用资深产品经理，处理 PRD 的创建/修改/Review。分
 ## 相关 Agent
 
 此命令调用位于以下位置的 `product-manager` Agent：
-`./agents/product-manager.md`
+`{CLAUDE_PLUGIN_ROOT}/agents/product-manager.md`
 
 并可引用位于以下位置的 `for-product-manager` Skill：
-`./skills/for-product-manager/SKILL.md`
+`{CLAUDE_PLUGIN_ROOT}/skills/for-product-manager/SKILL.md`
 
 ## 示例
 

@@ -15,8 +15,7 @@
         "email": "zxq@olzx-ai.com"
       },
       "source": "./plugins/spec-compiler",
-      "category": "workflow",
-      "homepage": "https://github.com/lillipopr/claude-plugins-olzx"
+      "category": "workflow"
     }
   ]
 }

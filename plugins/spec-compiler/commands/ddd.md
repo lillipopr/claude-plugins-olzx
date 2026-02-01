@@ -44,8 +44,8 @@ PRD → [T1]摘要 → [T2-T7]六章生成 → [T8]综合评分 → [T9]组装�
 
 ## 知识库
 
-- Agent: `./agents/domain-architect.md`
-- Skill: `./skills/for-domain-architect/SKILL.md`
+- Agent: `{CLAUDE_PLUGIN_ROOT}/agents/domain-architect.md`
+- Skill: `{CLAUDE_PLUGIN_ROOT}/skills/for-domain-architect/SKILL.md`
 
 ## 示例
 

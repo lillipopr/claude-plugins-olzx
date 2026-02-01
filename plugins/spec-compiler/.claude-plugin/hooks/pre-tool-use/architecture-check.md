@@ -112,6 +112,6 @@ def check_architecture_layer(file_path, imports, dependencies):
 
 ## 相关文档
 
-- [Java DDD 分层规范](../../rules/architecture/java-ddd-layers.md)
-- [iOS MVVM 分层规范](../../rules/architecture/ios-mvvm-layers.md)
-- [Vue 3 前端分层规范](../../rules/architecture/vue3-layers.md)
+- [Java DDD 分层规范]({CLAUDE_PLUGIN_ROOT}/rules/architecture/java-ddd-layers.md)
+- [iOS MVVM 分层规范]({CLAUDE_PLUGIN_ROOT}/rules/architecture/ios-mvvm-layers.md)
+- [Vue 3 前端分层规范]({CLAUDE_PLUGIN_ROOT}/rules/architecture/vue3-layers.md)

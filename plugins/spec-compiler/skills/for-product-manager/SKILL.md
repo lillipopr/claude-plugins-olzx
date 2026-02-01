@@ -1,6 +1,14 @@
 ---
 name: for-product-manager
 description: 资深产品经理知识库，提供产品全生命周期的方法论、模板和工作流。
+
+当用户询问以下问题时触发：
+- "编写 PRD"
+- "产品需求分析"
+- "竞品分析"
+- "市场分析"
+- "功能优先级排序"
+- "用户故事编写"
 ---
 
 # 资深产品经理 Skill
@@ -64,4 +72,4 @@ description: 资深产品经理知识库，提供产品全生命周期的方法�
 - **我要拆分功能** → [功能拆分方法论](methodology/feature-breakdown.md)
 
 ### 相关 Agent
-- `agents/product-manager/AGENT.md`
+- [{CLAUDE_PLUGIN_ROOT}/agents/product-manager.md]({CLAUDE_PLUGIN_ROOT}/agents/product-manager.md) - 产品经理 Agent

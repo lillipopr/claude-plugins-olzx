@@ -164,13 +164,13 @@ description: 调用前端专家，实现前端代码/Review/Bugfix。遵循 Vue 
 ## 相关 Agent
 
 此命令调用位于以下位置的 `frontend-expert` Agent：
-`./agents/frontend-expert.md`
+`{CLAUDE_PLUGIN_ROOT}/agents/frontend-expert.md`
 
 并可引用位于以下位置的 `for-frontend-expert` Skill：
-`./skills/for-frontend-expert/SKILL.md`
+`{CLAUDE_PLUGIN_ROOT}/skills/for-frontend-expert/SKILL.md`
 
 以及位于以下位置的 Vue 3 前端分层规范：
-`./rules/architecture/vue3-layers.md`
+`{CLAUDE_PLUGIN_ROOT}/rules/architecture/vue3-layers.md`
 
 ## 示例
 

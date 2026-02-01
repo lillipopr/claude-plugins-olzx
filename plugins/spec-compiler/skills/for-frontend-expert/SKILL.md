@@ -1,6 +1,14 @@
 ---
 name: for-frontend-expert
 description: Vue3 资深前端技术专家知识库，提供 Vue3 分层架构、Composition API、TypeScript、性能优化、工程化等核心知识。
+
+当用户询问以下问题时触发：
+- "前端架构设计"
+- "Vue3 组件开发"
+- "TypeScript 类型"
+- "前端性能优化"
+- "前端代码审查"
+- "Vue 状态管理"
 ---
 
 # Vue3 前端技术专家 Skill
@@ -59,7 +67,7 @@ description: Vue3 资深前端技术专家知识库，提供 Vue3 分层架构�
 - **代码审查**: 见 [开发工作流](references/sop/development-workflow.md)
 
 ### 相关 Agent
-- `agents/frontend-expert/AGENT.md`
+- [{CLAUDE_PLUGIN_ROOT}/agents/frontend-expert.md]({CLAUDE_PLUGIN_ROOT}/agents/frontend-expert.md) - 前端技术专家 Agent
 
 ## 快速参考
 

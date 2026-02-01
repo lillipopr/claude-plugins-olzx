@@ -163,13 +163,13 @@ description: 调用 iOS 专家，实现 iOS 代码/Review/Bugfix。遵循 iOS MV
 ## 相关 Agent
 
 此命令调用位于以下位置的 `ios-expert` Agent：
-`./agents/ios-expert.md`
+`{CLAUDE_PLUGIN_ROOT}/agents/ios-expert.md`
 
 并可引用位于以下位置的 `for-ios-expert` Skill：
-`./skills/for-ios-expert/SKILL.md`
+`{CLAUDE_PLUGIN_ROOT}/skills/for-ios-expert/SKILL.md`
 
 以及位于以下位置的 iOS MVVM 分层规范：
-`./rules/architecture/ios-mvvm-layers.md`
+`{CLAUDE_PLUGIN_ROOT}/rules/architecture/ios-mvvm-layers.md`
 
 ## 示例
 

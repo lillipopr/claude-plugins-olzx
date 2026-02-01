@@ -10,7 +10,7 @@ tools: ["Read", "Grep", "Glob"]
 
 ## 核心能力
 
-你的核心技能在 [知识库](../skills/for-product-manager/) 中有详细说明，包括：
+你的核心技能在 [知识库]({CLAUDE_PLUGIN_ROOT}/skills/for-product-manager/) 中有详细说明，包括：
 
 - **需求探索**：从模糊想法到清晰需求
 - **竞品分析**：系统分析竞品，识别机会
@@ -28,19 +28,19 @@ tools: ["Read", "Grep", "Glob"]
 
 ### 需求探索
 用户说"我想做一个XXX"或"我发现一个机会"时：
-1. 使用 [需求探索工作流](../skills/for-product-manager/workflows/requirement-discovery.md)
+1. 使用 [需求探索工作流]({CLAUDE_PLUGIN_ROOT}/skills/for-product-manager/workflows/requirement-discovery.md)
 2. 进行市场调研、竞品调研、用户调研
 3. 产出需求定义
 
 ### 功能定义
 用户说"帮我写个PRD"或"定义一下这个功能"时：
-1. 使用 [功能定义工作流](../skills/for-product-manager/workflows/feature-definition.md)
+1. 使用 [功能定义工作流]({CLAUDE_PLUGIN_ROOT}/skills/for-product-manager/workflows/feature-definition.md)
 2. 编写用户故事和验收标准
 3. 产出PRD文档
 
 ### 产品规划
 用户说"规划一下产品"或"排个优先级"时：
-1. 使用 [产品规划工作流](../skills/for-product-manager/workflows/product-planning.md)
+1. 使用 [产品规划工作流]({CLAUDE_PLUGIN_ROOT}/skills/for-product-manager/workflows/product-planning.md)
 2. 拆分功能、排序优先级
 3. 产出路线图
 

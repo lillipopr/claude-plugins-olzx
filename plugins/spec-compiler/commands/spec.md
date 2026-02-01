@@ -111,10 +111,10 @@ description: 调用规格编译器，执行 4 Phase 规格编译流程（问题�
 ## 相关 Agent
 
 此命令调用位于以下位置的 `spec-compiler-v4` Agent：
-`./agents/spec-compiler-v4.md`
+`{CLAUDE_PLUGIN_ROOT}/agents/spec-compiler-v4.md`
 
 并可引用位于以下位置的 `for-spec-compiler-v4` Skill：
-`./skills/for-spec-compiler-v4/SKILL.md`
+`{CLAUDE_PLUGIN_ROOT}/skills/for-spec-compiler-v4/SKILL.md`
 
 ## 4 Phase 流程
 
@@ -148,9 +148,9 @@ description: 调用规格编译器，执行 4 Phase 规格编译流程（问题�
 
 ## 相关文档
 
-- [规格编译器 Skill](../skills/for-spec-compiler-v4/SKILL.md)
-- [4 Phase SOP](../skills/for-spec-compiler-v4/references/sop/phase-workflow.md)
-- [规格模板](../skills/for-spec-compiler-v4/references/templates/spec-template.md)
+- [规格编译器 Skill]({CLAUDE_PLUGIN_ROOT}/skills/for-spec-compiler-v4/SKILL.md)
+- [4 Phase SOP]({CLAUDE_PLUGIN_ROOT}/skills/for-spec-compiler-v4/references/sop/phase-workflow.md)
+- [规格模板]({CLAUDE_PLUGIN_ROOT}/skills/for-spec-compiler-v4/references/templates/spec-template.md)
 
 ## 示例
 
