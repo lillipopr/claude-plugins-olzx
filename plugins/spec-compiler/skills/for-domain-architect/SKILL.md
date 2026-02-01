@@ -1,14 +1,6 @@
 ---
 name: for-domain-architect
-description: 资深领域架构师，将 PRD 转化为领域设计文档。支持 5 章结构生成、质量评分、任务工作流、上下文优化。
-
-当用户询问以下问题时触发：
-- "领域建模"
-- "DDD 设计"
-- "聚合设计"
-- "限界上下文"
-- "领域事件"
-- "DDD 架构设计"
+description: 资深领域架构师，将 PRD 转化为领域设计文档。支持 5 章结构生成、每章 3×PDCA 循环、质量评分、人工 Review、22 任务工作流。当用户需要进行领域建模、DDD 设计、聚合设计、限界上下文划分时触发。
 ---
 
 # 资深领域架构师 Skill
@@ -52,24 +44,110 @@ PRD 文档 → Roadmap 生成 → PRD 摘要 → 逐章生成（5 章 × 3×PDCA
 → 综合评分 → 文档组装
 ```
 
-### 任务结构
-- 8 个独立任务（T1-T8）
-- 每章经历 3×PDCA 循环（原则检测→检查清单→评分）
-- 质量关卡：每章 ≥60 分，综合 ≥90 分
+### 任务结构（22 个任务）
+- **T1**: PRD 分析与摘要
+- **T2-T5**: 第一章 - 限界上下文设计（4 个任务）
+- **T6-T9**: 第二章 - 聚合设计（4 个任务）
+- **T10-T13**: 第三章 - 领域服务设计（4 个任务）
+- **T14-T17**: 第四章 - 应用层设计（4 个任务）
+- **T18-T21**: 第五章 - 入口层设计（4 个任务）
+- **T22**: 综合评分
+- **T23**: 文档组装
 
-### 详细文档
-📖 [完整工作流文档](references/workflow/README.md)
+每章经历 **3×PDCA 循环**：
+- **PDCA #1**: Principles 检测（基于设计原则检测并修复问题）
+- **PDCA #2**: Checklists 检测（基于检查清单检测并修复问题）
+- **PDCA #3**: Scoring 检测（基于评分标准评分，≥60 分通过）
+
+每章完成后需要 **人工 Review** 确认。
+
+---
+
+## 执行指引（必读）
+
+### 第一步：执行前准备
+
+**必须先读取以下工作流文档**（按顺序）：
+
+1. 📖 [工作流索引](references/workflow/README.md) - 快速导航和常见问题
+2. 📖 [Roadmap 工作流](references/workflow/roadmap-workflow.md) - Roadmap 生成和进度展示
+3. 📖 [PDCA 章节生成](references/workflow/pdca-chapter-generation.md) - 3×PDCA 质量循环详解
+4. 📖 [Task 管理规范](references/workflow/task-management.md) - Task 定义和执行规范
+
+### 第二步：生成 Roadmap
+
+在执行任务前，先生成完整的 Roadmap 并展示给用户确认：
+
+```
+# 领域设计文档生成 Roadmap
+
+## 概览
+- **目标**：从 PRD 生成领域设计文档
+- **预计步骤**：22 个任务
+- **质量关卡**：每章 ≥60 分，综合 ≥90 分
+
+## 执行计划
+（详见 roadmap-workflow.md 中的模板）
+```
+
+### 第三步：创建任务（TaskCreate）
+
+创建 **22 个任务**，任务依赖关系：
+
+```
+T1: PRD 分析与摘要（无依赖）
+  ↓
+T2-T5: 第一章（T2 依赖 T1，T3 依赖 T2，...）
+  ↓
+T6-T9: 第二章（依赖 T5）
+  ↓
+T10-T13: 第三章（依赖 T9）
+  ↓
+T14-T17: 第四章（依赖 T13）
+  ↓
+T18-T21: 第五章（依赖 T17）
+  ↓
+T22: 综合评分（依赖 T21）
+  ↓
+T23: 文档组装（依赖 T22）
+```
+
+### 第四步：执行任务循环
+
+使用 TaskList 找到下一个可执行任务，执行流程：
+
+1. **标记为 in_progress**（TaskUpdate）
+2. **执行任务**（根据任务类型执行）
+3. **质量检查**（根据质量关卡类型）
+4. **更新状态**（completed / pending / failed）
+5. **显示进度**
+
+### 第五步：处理人工 Review
+
+当遇到人工 Review 任务时：
+1. 显示当前章节的完成情况
+2. 等待用户确认
+3. 根据用户反馈决定下一步
+
+### 第六步：综合评分和文档组装
+
+1. 计算综合评分（≥90 分交付）
+2. 使用模板组装最终文档
+3. 输出文档路径
 
 ---
 
 ## 参考资料
 
-### 工作流文档
+### 工作流文档（必读）
 
 | 文件 | 说明 | 优先级 |
 |------|------|--------|
 | [references/workflow/README.md](references/workflow/README.md) | **工作流索引**：快速导航和常见问题 | ⭐⭐⭐ |
 | [references/workflow/context-optimization.md](references/workflow/context-optimization.md) | **上下文优化**：避免上下文撑爆 | ⭐⭐⭐ |
+| [references/workflow/roadmap-workflow.md](references/workflow/roadmap-workflow.md) | **Roadmap 工作流**：Roadmap 生成和进度展示 | ⭐⭐⭐ |
+| [references/workflow/pdca-chapter-generation.md](references/workflow/pdca-chapter-generation.md) | **PDCA 章节生成**：3×PDCA 质量循环详解 | ⭐⭐⭐ |
+| [references/workflow/task-management.md](references/workflow/task-management.md) | **Task 管理规范**：Task 定义和执行规范 | ⭐⭐⭐ |
 
 ### 设计原则（按章节分类）
 
@@ -119,10 +197,11 @@ PRD 文档 → Roadmap 生成 → PRD 摘要 → 逐章生成（5 章 × 3×PDCA
 **输出**：`{功能名称}-领域设计文档.md`
 
 **流程**：
-1. 创建 7 个任务（TaskCreate）
+1. 创建 22 个任务（TaskCreate）
 2. 执行任务循环（实时显示进度）
-3. 每个任务完成后自检评分
-4. 综合评分 ≥90 分交付
+3. 每章完成后 3×PDCA 循环（原则检测→检查清单→评分）
+4. 每章完成后人工 Review
+5. 综合评分 ≥90 分交付
 
 ### 场景 2：Review 设计质量
 
