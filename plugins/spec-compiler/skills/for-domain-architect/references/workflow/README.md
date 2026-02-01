@@ -15,7 +15,7 @@
 │    ↓                                                                     │
 │  ┌─────────────────────────────────────────────────────────────────┐    │
 │  │ [生成流程](workflow-generation.md)                               │    │
-│  │   PRD → 第一章 → 第二章 → 第三章 → 第四章 → 第五章 → 第六章         │    │
+│  │   PRD → 第一章 → 第二章 → 第三章 → 第四章 → 第五章                    │    │
 │  │   每章生成后自检评分 ≥60 分                                         │    │
 │  └─────────────────────────────────────────────────────────────────┘    │
 │    ↓                                                                     │
@@ -81,11 +81,10 @@
 | 章节 | 权重 | 说明 |
 |------|------|------|
 | 第一章：限界上下文 | 15% | 战略设计基础 |
-| 第二章：聚合设计 | 25% | 战术设计核心 |
+| 第二章：聚合设计 | 30% | 战术设计核心（含事件发布） |
 | 第三章：领域服务 | 10% | 跨聚合协作 |
-| 第四章：应用层 | 15% | 用例编排 |
-| 第五章：领域事件 | 10% | 异步协作 |
-| 第六章：入口层 | 10% | 外部交互 |
+| 第四章：应用层 | 20% | 用例编排（含事件处理） |
+| 第五章：入口层 | 10% | 外部交互 |
 | 设计一致性 | 15% | 整体质量 |
 
 ### 综合评分公式
@@ -93,8 +92,8 @@
 ```
 总分 = Σ(章节分数 × 权重) + 设计一致性分数 × 15%
 
-总分 = 第一章 × 15% + 第二章 × 25% + 第三章 × 10% +
-       第四章 × 15% + 第五章 × 10% + 第六章 × 10% +
+总分 = 第一章 × 15% + 第二章 × 30% + 第三章 × 10% +
+       第四章 × 20% + 第五章 × 10% +
        设计一致性 × 15%
 ```
 
@@ -107,7 +106,7 @@
 **文件**：[task-based-workflow.md](task-based-workflow.md)
 
 **内容**：
-- 任务拆分策略（9个独立任务）
+- 任务拆分策略（7个独立任务）
 - 任务依赖管理
 - 质量关卡机制
 - 进度跟踪显示
@@ -123,7 +122,7 @@
 
 **内容**：
 - PRD 分析方法
-- 六章生成步骤
+- 五章生成步骤
 - 每章自检方法
 - 文档组装流程
 - 生成优化策略
@@ -132,7 +131,7 @@
 
 **关键步骤**：
 1. Step 1：PRD 分析
-2. Step 2-7：按章节生成
+2. Step 2-6：按章节生成
 3. Step 8：组装文档
 
 ---
@@ -210,7 +209,7 @@
 **文件**：[task-based-workflow.md](task-based-workflow.md)
 
 **内容**：
-- 任务拆分策略（9个独立任务）
+- 任务拆分策略（7个独立任务）
 - 任务依赖管理
 - 质量关卡机制
 - 进度跟踪显示
@@ -233,10 +232,9 @@
 ├─ [T3] 第二章：聚合设计
 ├─ [T4] 第三章：领域服务设计
 ├─ [T5] 第四章：应用层设计
-├─ [T6] 第五章：领域事件
-├─ [T7] 第六章：入口层设计
-├─ [T8] 综合评分
-└─ [T9] 文档组装
+├─ [T6] 第五章：入口层设计
+├─ [T7] 综合评分
+└─ [T8] 文档组装
 ```
 
 ---
@@ -248,22 +246,20 @@
 | 章节 | 指令文件 | 说明 |
 |------|---------|------|
 | 第一章 | [chapters/chapter-01-bounded-context.md](../chapters/chapter-01-bounded-context.md) | 限界上下文设计指令 |
-| 第二章 | [chapters/chapter-02-aggregate.md](../chapters/chapter-02-aggregate.md) | 聚合设计指令 |
+| 第二章 | [chapters/chapter-02-aggregate.md](../chapters/chapter-02-aggregate.md) | 聚合设计指令（含事件发布） |
 | 第三章 | [chapters/chapter-03-domain-service.md](../chapters/chapter-03-domain-service.md) | 领域服务设计指令 |
-| 第四章 | [chapters/chapter-04-application.md](../chapters/chapter-04-application.md) | 应用层设计指令 |
-| 第五章 | [chapters/chapter-05-domain-event.md](../chapters/chapter-05-domain-event.md) | 领域事件指令 |
-| 第六章 | [chapters/chapter-06-starter.md](../chapters/chapter-06-starter.md) | 入口层设计指令 |
+| 第四章 | [chapters/chapter-04-application.md](../chapters/chapter-04-application.md) | 应用层设计指令（含事件处理） |
+| 第五章 | [chapters/chapter-05-starter.md](../chapters/chapter-05-starter.md) | 入口层设计指令 |
 
 ### 设计原则
 
 | 章节 | 原则文件 | 说明 |
 |------|---------|------|
 | 第一章 | [principles/bounded-context.md](../principles/bounded-context.md) | 限界上下文原则 |
-| 第二章 | [principles/aggregate.md](../principles/aggregate.md) | 聚合相关原则 |
+| 第二章 | [principles/aggregate.md](../principles/aggregate.md) | 聚合相关原则（含事件发布） |
 | 第三章 | [principles/domain-service.md](../principles/domain-service.md) | 领域服务原则 |
-| 第四章 | [principles/application.md](../principles/application.md) | 应用层原则 |
-| 第五章 | [principles/domain-event.md](../principles/domain-event.md) | 领域事件原则 |
-| 第六章 | [principles/starter.md](../principles/starter.md) | 入口层原则 |
+| 第四章 | [principles/application.md](../principles/application.md) | 应用层原则（含事件处理） |
+| 第五章 | [principles/starter.md](../principles/starter.md) | 入口层原则 |
 
 ### 评分标准
 
@@ -274,7 +270,6 @@
 | [scoring/chapter-03-scoring.md](../scoring/chapter-03-scoring.md) | 第三章 | 100 |
 | [scoring/chapter-04-scoring.md](../scoring/chapter-04-scoring.md) | 第四章 | 100 |
 | [scoring/chapter-05-scoring.md](../scoring/chapter-05-scoring.md) | 第五章 | 100 |
-| [scoring/chapter-06-scoring.md](../scoring/chapter-06-scoring.md) | 第六章 | 100 |
 | [scoring/design-consistency-scoring.md](../scoring/design-consistency-scoring.md) | 设计一致性 | 100 |
 
 ### 检查清单
@@ -286,7 +281,6 @@
 | [checklists/chapter-03-checklist.md](../checklists/chapter-03-checklist.md) | 第三章 |
 | [checklists/chapter-04-checklist.md](../checklists/chapter-04-checklist.md) | 第四章 |
 | [checklists/chapter-05-checklist.md](../checklists/chapter-05-checklist.md) | 第五章 |
-| [checklists/chapter-06-checklist.md](../checklists/chapter-06-checklist.md) | 第六章 |
 | [checklists/final-review-checklist.md](../checklists/final-review-checklist.md) | 最终审查 |
 
 ---
@@ -307,7 +301,7 @@
 
 **A**：按照 [生成流程](workflow-generation.md)：
 1. 分析 PRD
-2. 按章节顺序生成（第一章 → 第六章）
+2. 按章节顺序生成（第一章 → 第五章）
 3. 每章完成后自检评分 ≥60 分
 4. 组装完整文档
 
@@ -378,7 +372,7 @@
 - 工作流索引文档
 
 **核心特性**：
-- 六章顺序生成
+- 五章顺序生成
 - 每章自检评分 ≥60 分
 - 综合评分 ≥90 分交付
 - 支持多轮迭代修改

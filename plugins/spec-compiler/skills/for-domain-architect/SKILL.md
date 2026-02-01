@@ -72,7 +72,7 @@ description: 资深领域架构师，将 PRD 转化为领域设计文档。支�
 │   └─ 质量关卡：≥60 分
 │
 ├─ [T6] 第五章：入口层设计（依赖：T5）
-│   ├─ 输出：chapter-06.md + summary + score
+│   ├─ 输出：chapter-05.md + summary + score
 │   └─ 质量关卡：≥60 分
 │
 ├─ [T7] 综合评分（依赖：T2-T6）
@@ -100,7 +100,7 @@ description: 资深领域架构师，将 PRD 转化为领域设计文档。支�
 | 第二章 | [chapters/chapter-02-aggregate.md](chapters/chapter-02-aggregate.md) | 聚合设计（包含事件发布） |
 | 第三章 | [chapters/chapter-03-domain-service.md](chapters/chapter-03-domain-service.md) | 领域服务设计 |
 | 第四章 | [chapters/chapter-04-application.md](chapters/chapter-04-application.md) | 应用层设计（包含事件处理） |
-| 第五章 | [chapters/chapter-06-starter.md](chapters/chapter-06-starter.md) | 入口层设计（Starter 层） |
+| 第五章 | [chapters/chapter-05-starter.md](chapters/chapter-05-starter.md) | 入口层设计（Starter 层） |
 
 ---
 
@@ -141,7 +141,7 @@ description: 资深领域架构师，将 PRD 转化为领域设计文档。支�
 | [references/checklists/chapter-02-checklist.md](references/checklists/chapter-02-checklist.md) | 第二章 |
 | [references/checklists/chapter-03-checklist.md](references/checklists/chapter-03-checklist.md) | 第三章 |
 | [references/checklists/chapter-04-checklist.md](references/checklists/chapter-04-checklist.md) | 第四章 |
-| [references/checklists/chapter-06-checklist.md](references/checklists/chapter-06-checklist.md) | 第五章 |
+| [references/checklists/chapter-05-checklist.md](references/checklists/chapter-05-checklist.md) | 第五章 |
 | [references/checklists/final-review-checklist.md](references/checklists/final-review-checklist.md) | 最终审查 |
 
 ### 评分标准（每章完成后使用）
@@ -152,7 +152,7 @@ description: 资深领域架构师，将 PRD 转化为领域设计文档。支�
 | [references/scoring/chapter-02-scoring.md](references/scoring/chapter-02-scoring.md) | 第二章 | 100 |
 | [references/scoring/chapter-03-scoring.md](references/scoring/chapter-03-scoring.md) | 第三章 | 100 |
 | [references/scoring/chapter-04-scoring.md](references/scoring/chapter-04-scoring.md) | 第四章 | 100 |
-| [references/scoring/chapter-06-scoring.md](references/scoring/chapter-06-scoring.md) | 第五章 | 100 |
+| [references/scoring/chapter-05-scoring.md](references/scoring/chapter-05-scoring.md) | 第五章 | 100 |
 | [references/scoring/design-consistency-scoring.md](references/scoring/design-consistency-scoring.md) | 设计一致性 | 100 |
 
 ### 输出模板

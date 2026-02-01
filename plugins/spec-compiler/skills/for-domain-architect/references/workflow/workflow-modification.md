@@ -371,7 +371,6 @@
 - 第三章：`scoring/chapter-03-scoring.md`
 - 第四章：`scoring/chapter-04-scoring.md`
 - 第五章：`scoring/chapter-05-scoring.md`
-- 第六章：`scoring/chapter-06-scoring.md`
 
 ### 评分结果
 
@@ -404,11 +403,10 @@
 | 维度 | 得分 | 权重 | 加权得分 |
 |------|------|------|----------|
 | 第一章 | XX | 15% | XX |
-| 第二章 | XX | 25% | XX |
+| 第二章 | XX | 30% | XX |
 | 第三章 | XX | 10% | XX |
-| 第四章 | XX | 15% | XX |
+| 第四章 | XX | 20% | XX |
 | 第五章 | XX | 10% | XX |
-| 第六章 | XX | 10% | XX |
 | 设计一致性 | XX | 15% | XX |
 | **总分** | - | - | **XX** |
 
@@ -495,15 +493,13 @@
 - [第二章指令](../chapters/chapter-02-aggregate.md)
 - [第三章指令](../chapters/chapter-03-domain-service.md)
 - [第四章指令](../chapters/chapter-04-application.md)
-- [第五章指令](../chapters/chapter-05-domain-event.md)
-- [第六章指令](../chapters/chapter-06-starter.md)
+- [第五章指令](../chapters/chapter-05-starter.md)
 
 ### 设计原则
 - [限界上下文原则](../principles/bounded-context.md)
 - [聚合相关原则](../principles/aggregate.md)
 - [领域服务原则](../principles/domain-service.md)
 - [应用层原则](../principles/application.md)
-- [领域事件原则](../principles/domain-event.md)
 - [入口层原则](../principles/starter.md)
 
 ### 评分标准
@@ -512,5 +508,4 @@
 - [第三章评分标准](../scoring/chapter-03-scoring.md)
 - [第四章评分标准](../scoring/chapter-04-scoring.md)
 - [第五章评分标准](../scoring/chapter-05-scoring.md)
-- [第六章评分标准](../scoring/chapter-06-scoring.md)
 - [设计一致性评分标准](../scoring/design-consistency-scoring.md)

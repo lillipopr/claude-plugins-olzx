@@ -309,8 +309,7 @@
 - [ ] chapter-02-checklist.md（2分）
 - [ ] chapter-03-checklist.md（2分）
 - [ ] chapter-04-checklist.md（2分）
-- [ ] chapter-05-checklist.md（1分）
-- [ ] chapter-06-checklist.md（1分）
+- [ ] chapter-05-checklist.md（2分）
 
 **扣分项**：
 - 检查清单缺失：扣 2 分/个
@@ -389,8 +388,7 @@
 | chapter-02-checklist | 2 | __ | 检查清单完整性 |
 | chapter-03-checklist | 2 | __ | 检查清单完整性 |
 | chapter-04-checklist | 2 | __ | 检查清单完整性 |
-| chapter-05-checklist | 1 | __ | 检查清单完整性 |
-| chapter-06-checklist | 1 | __ | 检查清单完整性 |
+| chapter-05-checklist | 2 | __ | 检查清单完整性 |
 | 设计覆盖检查清单 | 5 | __ | 检查清单与设计对应 |
 | 检查清单覆盖设计 | 5 | __ | 检查清单与设计对应 |
 | **总计** | 100 | __ | |
@@ -497,5 +495,4 @@
 - chapter-02-checklist.md → 第二章：聚合设计
 - chapter-03-checklist.md → 第三章：领域服务设计
 - chapter-04-checklist.md → 第四章：应用层设计
-- chapter-05-checklist.md → 第五章：领域事件设计
-- chapter-06-checklist.md → 第六章：入口层设计
+- chapter-05-checklist.md → 第五章：入口层设计
