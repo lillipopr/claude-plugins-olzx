@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "olzx-marketplace",
-  "description": "LollipopR Claude Marketplace",
+  "name": "olzx-cc-plugins-marketplace",
+  "description": "olzx-cc-plugins-marketplace",
   "owner": {
     "name": "zxq",
     "email": "zxq@olzx-ai.com"

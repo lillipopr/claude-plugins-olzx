@@ -52,70 +52,6 @@
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-## 插件结构
-
-### Marketplace 结构（支持 `/plugin marketplace add`）
-
-```
-spec-compiler/
-├── .claude-plugin/               # Marketplace 配置
-│   ├── marketplace.json         # Marketplace 配置（source: "./plugins/spec-compiler"）
-│   ├── README.md                # 插件开发指南
-│   ├── HOOKS.md                 # Hooks 开发规范
-│   ├── VERSIONING.md            # 版本管理规范
-│   └── PUBLISHING.md            # 发布流程指南
-├── plugins/                      # 【必需】Marketplace 插件目录
-│   └── spec-compiler/       # 插件子目录（source 指向这里）
-│       ├── .claude-plugin/
-│       │   ├── plugin.json      # 插件元数据（v2.0 规范）
-│       │   ├── hooks/           # Hooks 配置目录
-│       │   │   ├── hooks.json   # Hook 执行配置（PreToolUse）
-│       │   │   ├── pre-tool-use/
-│       │   │   ├── post-tool-use/
-│       │   │   ├── session-start/
-│       │   │   └── session-end/
-│       │   └── scripts/
-│       │       ├── hooks/       # 可执行 Hook 脚本
-│       │       │   ├── phase-review-check.js
-│       │       │   ├── architecture-check.js
-│       │       │   └── README.md
-│       │       ├── pre-install.sh
-│       │       ├── post-install.sh
-│       │       └── pre-uninstall.sh
-│       │   ├── commands/            # 【Command 层】用户命令入口
-│       │   │   ├── prd.md                   # 产品经理命令
-│       │   │   ├── ddd.md                   # 领域架构师命令
-│       │   │   ├── spec.md                  # 规格编译器命令
-│       │   │   ├── tdd.md                   # TDD 专家命令
-│       │   │   ├── java.md                  # Java 工程师命令
-│       │   │   ├── ios.md                   # iOS 工程师命令
-│       │   │   └── front.md                 # 前端工程师命令
-│       │   ├── agents/               # 【Agent 层】按角色命名的执行代理
-│       │   │   ├── product-manager.md       # 产品经理
-│       │   │   ├── domain-architect.md      # 领域架构师
-│       │   │   ├── spec-compiler-v4.md      # 规格编译器
-│       │   │   ├── tdd-expert.md            # TDD 专家
-│       │   │   ├── java-expert.md           # Java 专家
-│       │   │   ├── ios-expert.md            # iOS 专家
-│       │   │   └── frontend-expert.md       # 前端专家
-│       │   ├── skills/               # 【Skill 层】按角色配备的知识库
-│       │   │   ├── for-product-manager/     # 产品经理知识库
-│       │   │   ├── for-domain-architect/    # 领域架构师知识库
-│       │   │   ├── for-spec-compiler-v4/    # 规格编译器知识库
-│       │   │   ├── for-tdd-expert/          # TDD 专家知识库
-│       │   │   ├── for-java-expert/         # Java 专家知识库
-│       │   │   ├── for-ios-expert/          # iOS 专家知识库
-│       │   │   └── for-frontend-expert/     # 前端专家知识库
-│       │   ├── tools/                # 【Tools 层】工具封装
-│       │   │   ├── file-tools/              # 文件操作工具
-│       │   │   ├── search-tools/            # 搜索工具
-│       │   │   └── validation-tools/        # 验证工具
-│       │   └── rules/                # 【可选】用户规则配置
-│       ├── README.md                     # 项目说明
-│       ├── CHANGELOG.md                  # 版本变更记录
-│       └── install.sh                    # 本地安装脚本
-```
-
 ### 各层职责说明
 
 | 层级 | 目录 | 职责 | 关系 |
@@ -123,7 +59,7 @@ spec-compiler/
 | **Command 层** | `commands/` | 面向用户的命令入口（`/prd`, `/ddd`, `/spec` 等） | 路由到合适的 Agent |
 | **Agent 层** | `agents/` | 实际执行任务、多次 tool 调用、决策、状态管理 | 按角色命名，引用对应 Skill |
 | **Skill 层** | `skills/` | 提供领域知识、方法论、SOP、模板、设计模式、原则 | 按角色配备 |
-| **Tools 层** | `tools/` | 读写文件、搜索、执行命令等 | 主动操作资源 |
+
 
 ## 使用方式
 
@@ -133,7 +69,7 @@ spec-compiler/
 
 ```bash
 # 添加 Marketplace
-/plugin marketplace add https://github.com/lillipopr/claude-plugins-olzx
+/plugin marketplace add https://github.com/lillipopr/olzx-cc-plugins
 
 # 安装插件
 /plugin install spec-compiler
