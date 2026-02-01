@@ -354,6 +354,129 @@ class MembershipApplication {
 
 ---
 
+## 8. 事件处理设计原则（v2.1 新增）
+
+> **v2.1 变更说明**：事件处理（Event Handling）已整合到应用层设计中。事件发布（Event Publishing）整合到聚合根行为设计中。
+
+### 8.1 事件监听器识别原则
+
+**原则**：所有领域事件都应有对应的监听器。
+
+| 检查项 | 说明 | 示例 |
+|-------|------|------|
+| **事件发布方** | 第二章中的事件发布都有监听器 | MembershipActivated → CouponGrant |
+| **监听器列表完整** | 每个事件都有对应监听器 | 检查事件清单完整性 |
+
+### 8.2 事件监听器设计原则
+
+**原则**：监听器职责清晰，处理步骤完整。
+
+| 要素 | 说明 | 示例 |
+|------|------|------|
+| **监听器所属应用服务** | 明确监听器属于哪个应用服务 | CouponApplication.startDailyGrant |
+| **监听器影响的聚合** | 明确监听器操作哪个聚合 | Coupon 聚合 |
+| **监听器处理逻辑** | 清晰描述处理流程 | 接收事件 → 幂等检查 → 调用领域服务 → 结果处理 |
+
+### 8.3 监听器处理步骤原则
+
+**原则**：监听器包含完整的处理步骤。
+
+```typescript
+// ✅ 正确：完整的监听器处理步骤
+class CouponApplication {
+  async onMembershipActivated(event: MembershipActivated): Promise<void> {
+    // 1. 事件接收
+    // 2. 幂等性检查
+    const idempotentKey = `membership:activated:${event.eventId}`
+    if (await this.idempotentRepo.exists(idempotentKey)) {
+      return  // 已处理，直接返回
+    }
+
+    // 3. 参数校验
+    this.validateEvent(event)
+
+    // 4. 调用领域服务/聚合
+    await this.couponDomain.startDailyGrant(event.membershipId)
+
+    // 5. 结果处理
+    await this.idempotentRepo.save(idempotentKey)
+  }
+}
+```
+
+### 8.4 幂等性保证原则
+
+**原则**：监听器必须保证幂等性。
+
+| 要素 | 说明 | 示例 |
+|------|------|------|
+| **幂等键定义** | 使用 eventId 作为幂等键 | `membership:activated:${eventId}` |
+| **存储位置** | 明确幂等键存储位置 | Redis / DB |
+| **去重逻辑** | 处理前检查是否已处理 | `exists(idempotentKey)` |
+
+```typescript
+// ✅ 正确：幂等性保证
+class CouponApplication {
+  async onMembershipActivated(event: MembershipActivated): Promise<void> {
+    // 幂等性检查
+    const idempotentKey = `membership:activated:${event.eventId}`
+    const exists = await this.idempotentRepo.exists(idempotentKey)
+    if (exists) {
+      return  // 已处理，直接返回
+    }
+
+    // 处理消息
+    await this.couponDomain.startDailyGrant(event.membershipId)
+
+    // 记录已处理
+    await this.idempotentRepo.save(idempotentKey)
+  }
+}
+```
+
+### 8.5 监听器异常处理原则
+
+**原则**：监听器异常处理分类清晰，判断标准明确。
+
+| 异常类型 | 处理方式 | 是否重试 | 判断标准 |
+|---------|---------|---------|---------|
+| **参数错误** | 发送到死信队列，告警 | 否 | 数据格式错误、字段缺失 |
+| **业务错误** | 发送到死信队列，告警 | 否 | 业务规则违反、状态不允许 |
+| **系统错误** | 重新入队（最多 N 次） | 是 | 网络超时、数据库连接失败 |
+| **超过重试次数** | 发送到死信队列，告警 | 否 | 重试 N 次后仍然失败 |
+
+```typescript
+// ✅ 正确：监听器异常处理
+class CouponApplication {
+  async onMembershipActivated(event: MembershipActivated): Promise<void> {
+    try {
+      await this.couponDomain.startDailyGrant(event.membershipId)
+    } catch (error) {
+      // 参数错误：发送到死信队列，不重试
+      if (error instanceof ValidationException) {
+        this.deadLetterQueue.send(event)
+        this.alert("参数错误", error)
+        return
+      }
+
+      // 业务错误：发送到死信队列，不重试
+      if (error instanceof BusinessRuleException) {
+        this.deadLetterQueue.send(event)
+        this.alert("业务错误", error)
+        return
+      }
+
+      // 系统错误：重新入队，重试
+      if (error instanceof SystemException) {
+        throw error  // 重新入队
+      }
+    }
+  }
+}
+```
+
+---
+
 ## 检查清单
 
 应用层设计完成前，确认：
@@ -368,3 +491,13 @@ class MembershipApplication {
 - [ ] 一个事务只修改一个聚合
 - [ ] Command 和 DTO 设计合理
 - [ ] 错误处理完善
+
+### 事件处理（v2.1 新增）
+- [ ] 所有领域事件都有对应的监听器
+- [ ] 监听器职责清晰
+  - 监听器所属应用服务明确
+  - 监听器影响的聚合明确
+  - 监听器处理逻辑清晰
+- [ ] 监听器包含完整的处理步骤
+- [ ] 监听器有幂等性保证
+- [ ] 监听器有完善的异常处理
