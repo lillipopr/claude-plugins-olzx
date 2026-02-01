@@ -29,9 +29,8 @@ verify_agents() {
 
     agents=(
         "planner"
-        "domain-architect"
         "product-manager"
-        "spec-compiler-v4"
+        "domain-architect"
         "java-expert"
         "ios-expert"
         "frontend-expert"
@@ -54,9 +53,8 @@ verify_skills() {
     echo "📚 验证 Skills..."
 
     skill_dirs=(
-        "for-spec-compiler-v4"
-        "for-domain-architect"
         "for-product-manager"
+        "for-domain-architect"
         "for-java-expert"
         "for-ios-expert"
         "for-frontend-expert"
@@ -93,9 +91,6 @@ show_usage_guide() {
     echo "===================================${NC}"
     echo ""
     echo "快速开始："
-    echo ""
-    echo "  启动规格编译流程："
-    echo "    /agent help spec-compiler-v4"
     echo ""
     echo "  查看可用 Agents："
     echo "    /agent list"

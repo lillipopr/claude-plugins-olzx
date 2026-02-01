@@ -1,18 +1,7 @@
 {
-  "description": "Hooks for spec-compiler plugin: Phase review check and architecture layer validation",
+  "description": "Hooks for spec-compiler plugin: Architecture layer validation",
   "hooks": {
     "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node ${CLAUDE_PLUGIN_ROOT}/scripts/hooks/phase-review-check.js",
-            "timeout": 5000
-          }
-        ],
-        "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\.(spec\\.md|PRD\\.md)$\"",
-        "description": "Phase 审查闸口：确保 Phase N+1 编辑前，Phase N 已审查通过"
-      },
       {
         "hooks": [
           {
