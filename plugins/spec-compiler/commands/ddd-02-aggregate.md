@@ -1,6 +1,6 @@
 ---
-description: 调用聚合设计Skill，根据限界上下文设计文档生成聚合设计文档。支持两阶段工作流：先生成大纲版讨论优化，定稿后生成详细版。
-calls-skill: spec-compiler:ddd-02-aggregate-skill
+description: 调用聚合设计Skill，根据限界上下文设计文档生成聚合设计文档。
+calls-skill: spec-compiler:ddd-02-aggregate
 ---
 
 # /ddd-02-aggregate - 聚合设计命令

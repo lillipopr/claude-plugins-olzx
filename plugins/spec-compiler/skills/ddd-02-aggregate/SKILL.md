@@ -1,5 +1,5 @@
 ---
-name: ddd-02-aggregate-skill
+name: ddd-02-aggregate
 description: 根据《限界上下文设计》文档直接生成《领域聚合设计文档》。当用户需要领域聚合设计、值对象设计、实体设计、聚合根设计时触发。
 ---
 
