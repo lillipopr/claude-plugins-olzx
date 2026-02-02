@@ -30,7 +30,7 @@ description: 根据《限界上下文设计》文档直接生成《领域聚合�
 #### 1.2 生成详细文档
 
 - 设计指南：[aggregate-guide.md](references/aggregate-guide.md)（必读）
-- 使用模板：[detail-template.md](references/templates/detail-template.md)（必读）
+- 使用模板：[detail-template.md](references/templates/detail-template.md)（严格遵循）
 - 输出文件：`{输出目录}/ddd-02-aggregate.md`
 
 ---
