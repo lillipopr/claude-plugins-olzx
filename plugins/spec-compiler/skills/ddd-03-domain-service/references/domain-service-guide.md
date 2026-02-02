@@ -145,7 +145,7 @@
 
 ## 输出格式
 
-[detail-template.md](templates/detail-template.md)
+文档模板：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-03-domain-service/references/templates/detail-template.md`
 
 ---
 

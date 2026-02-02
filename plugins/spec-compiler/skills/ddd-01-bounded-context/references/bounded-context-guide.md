@@ -198,7 +198,7 @@ graph TB
 ```
 ## 输出格式
 
-[detail-template.md](templates/detail-template.md)
+文档模板：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-01-bounded-context/references/templates/detail-template.md`
 
 ## 质量检查
 

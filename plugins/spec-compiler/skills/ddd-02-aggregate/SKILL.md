@@ -27,11 +27,15 @@ description: 根据《限界上下文设计》文档直接生成《领域聚合�
 - 子域
 - 实体
 
-#### 1.2 生成详细文档
+#### 1.2 读取设计指南和模板
 
-- 设计指南：[aggregate-guide.md](references/aggregate-guide.md)（必读）
-- 使用模板：[detail-template.md](references/templates/detail-template.md)（严格遵循）
-- 输出文件：`{输出目录}/ddd-02-aggregate.md`
+**必读文件**（使用 Read 工具读取）：
+- 设计指南：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-02-aggregate/references/aggregate-guide.md`
+- 文档模板：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-02-aggregate/references/templates/detail-template.md`
+
+#### 1.3 生成详细文档
+
+输出文件：`{输出目录}/ddd-02-aggregate.md`
 
 ---
 

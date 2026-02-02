@@ -444,7 +444,7 @@ activate(): void {
 
 ## 输出格式
 
-[templates/detail-template.md](templates/detail-template.md)
+文档模板：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-02-aggregate/references/templates/detail-template.md`
 
 --- 
 

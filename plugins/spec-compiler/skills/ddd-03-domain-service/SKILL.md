@@ -26,11 +26,15 @@ description: 根据《聚合设计》文档生成《领域服务设计文档》�
 - 聚合间关系图
 - 领域事件列表
 
-#### 1.2 生成详细文档
+#### 1.2 读取设计指南和模板
 
-- 设计指南：[domain-service-guide.md](references/domain-service-guide.md)（必读）
-- 使用模板：[detail-template.md](references/templates/detail-template.md)（严格遵守）
-- 输出文件：`{输出目录}/ddd-03-domain-service.md`
+**必读文件**（使用 Read 工具读取）：
+- 设计指南：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-03-domain-service/references/domain-service-guide.md`
+- 文档模板：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-03-domain-service/references/templates/detail-template.md`
+
+#### 1.3 生成详细文档
+
+输出文件：`{输出目录}/ddd-03-domain-service.md`
 
 ---
 

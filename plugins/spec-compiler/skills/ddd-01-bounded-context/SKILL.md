@@ -27,11 +27,15 @@ description: 根据 PRD 生成《领域架构-限界上下文设计》文档。�
 - 业务流程 → 能力依赖关系
 - 外部集成 → 外部系统
 
-#### 1.2 生成详细文档
+#### 1.2 读取设计指南和模板
 
-- 设计指南：[bounded-context-guide.md](references/bounded-context-guide.md)（必读）
-- 使用模板：[outline-template.md](references/templates/outline-template.md)（严格遵守）
-- 输出文件：`{输出目录}/ddd-01-bounded-context.md`
+**必读文件**（使用 Read 工具读取）：
+- 设计指南：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-01-bounded-context/references/bounded-context-guide.md`
+- 文档模板：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-01-bounded-context/references/templates/detail-template.md`
+
+#### 1.3 生成详细文档
+
+输出文件：`{输出目录}/ddd-01-bounded-context.md`
 
 ---
 
@@ -85,18 +89,3 @@ PRD 分析（提取核心实体与动词）
 上下文映射（依赖关系与集成模式）
 ```
 
----
-
-## 参考资料
-
-### 设计指南
-
-| 文件 | 说明 |
-|------|------|
-| references/bounded-context-guide.md | **限界上下文设计完整指南**（必读） |
-
-### 模板文件
-
-| 文件 | 说明 |
-|------|------|
-| references/templates/detail-template.md | 详细文档模板 |
