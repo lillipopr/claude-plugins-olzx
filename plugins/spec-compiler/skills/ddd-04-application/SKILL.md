@@ -26,28 +26,30 @@ description: 根据《聚合设计》《领域服务设计》文档生成《应�
 - 领域事件列表
 - 聚合根及方法
 
-#### 1.2 读取设计指南和模板
+#### 1.2 读取设计指南和模板（强制执行）
 
-**必读文件**（使用 Read 工具读取）：
-- 设计指南：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-04-application/references/application-guide.md`
-- 文档模板：`{CLAUDE_PLUGIN_ROOT}/skills/ddd-04-application/references/templates/detail-template.md`
+**必须使用 Read 工具读取以下文件**：
+
+1. 读取设计指南：
+   ```
+   Read({CLAUDE_PLUGIN_ROOT}/skills/ddd-04-application/references/application-guide.md)
+   ```
+
+2. 读取文档模板：
+   ```
+   Read({CLAUDE_PLUGIN_ROOT}/skills/ddd-04-application/references/templates/detail-template.md)
+   ```
+
+**重要**：生成文档时，必须严格遵循模板的结构和格式。
 
 #### 1.3 生成详细文档
 
 输出文件：`{输出目录}/ddd-04-application.md`
 
----
-
-## 使用场景
-
-### 场景 1：从领域服务设计生成应用服务设计
-
-**输入**：领域服务设计文档路径
-**输出**：`ddd-04-application.md`
-
-**流程**：
-1. 读取《领域服务设计》，提取服务和事件信息
-2. 生成《应用服务设计文档》
+**要求**：
+- 严格按照模板结构生成
+- 遵循设计指南的原则和规则
+- 不得省略模板中的任何章节
 
 ---
 
