@@ -7,13 +7,6 @@ calls-skill: spec-compiler:ddd-02-aggregate
 
 此命令调用 **ddd-02-aggregate** Skill，从《限界上下文设计》文档生成《聚合设计》文档。
 
-## 使用场景
-
-- 已有《限界上下文设计》文档，需要生成《聚合设计》
-- 需要识别聚合根、实体、值对象
-- 需要设计聚合边界和引用关系
-- 需要划分领域服务
-
 ## 技术说明
 
 **Command 类型**：直接调用 Skill（非 Agent）
